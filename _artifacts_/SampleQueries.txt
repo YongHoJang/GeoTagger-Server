@@ -1,0 +1,38 @@
+curl -d '{"firstname": "Min Seong", "lastname": "Kang"}' -H 'Content-Type: application/json'  http://127.0.0.1:5000/people
+
+
+
+curl -v -d '{"urbanType":false,"counselingType":false,"mediaType":false,"timestamp":"Sun, 22 Dec 2013 06:18:42 GMT","bibleStudyType":false,"photoId":"","evanType":true,"hospitalType":false,"prostitutesType":false,"lat":63.233,"orphansType":false,"contactEmail":"","researchType":false,"contactWebsite":"","campusType":false,"communityDevType":false,"contactConfirmed":false,"desc":"Testing new api...","indigenousType":true,"lon":-122.406417,"artsType":false,"prisonType":false,"womenType":false,"contactPhone":"","healthcareType":false,"churchPlantingType":false,"constructionType":false,"youthType":true,"trainType":false,"mercyType":false,"tags":""}' -H 'Content-Type: application/json'  http://127.0.0.1:5000/location/
+
+
+
+>> ************
+>> SHA1 example
+>> user: tester, password: easyas123
+>> How to make Authorization header:
+    --> Username and password are combined into a string "username:password"
+    --> The resulting string literal is then encoded using the RFC2045-MIME variant of Base64
+    --> The authorization method and a space i.e. "Basic " is then put before the encoded string.
+    
+>> request:    
+curl -d '{"first name": "Youn Jin", "lastname": "Kim"}' -H 'Content-Type: application/json' -H 'Authorization: Basic dGVzdGVyOnBia2RmMjpzaGExOjEwMDAkVE1UektoNFgkYjc0NjRhMTQwZTcxYzBmODMwNmJlYWYxMmY0ZDQxNmE2NTYwNDdmYw=='   http://127.0.0.1:5000/people
+
+curl -i -H 'Authorization: Basic dGVzdGVyOnBia2RmMjpzaGExOjEwMDAkVE1UektoNFgkYjc0NjRhMTQwZTcxYzBmODMwNmJlYWYxMmY0ZDQxNmE2NTYwNDdmYw==' http://127.0.0.1:5000
+
+
+>> ************
+>> HMAC example
+>> data = ''
+>> secret_key = 'a1b2c3d4e5'
+>> python code to run : hmac.new(str(secret_key), str(data), sha1).hexdigest()
+  --> 3938ed5d9a07f1c51cfdeacd9b9b23b0c86b4cfa
+  
+>> request: username + hexdigest
+curl -i -H 'Authorization: tester:3938ed5d9a07f1c51cfdeacd9b9b23b0c86b4cfa' http://127.0.0.1:5000
+  
+
+
+
+
+
+
