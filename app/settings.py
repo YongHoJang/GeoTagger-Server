@@ -24,9 +24,6 @@ MONGO_DBNAME = 'api4k'
 # Data Models
 DOMAIN = domain
 
-# Define a pymongo instance
-mongodb = MongoClient(MONGO_HOST, MONGO_PORT)[MONGO_DBNAME]
-
 
 
 

@@ -1,3 +1,4 @@
+import os
 from eve import Eve
 from eve.auth import BasicAuth, HMACAuth
 from werkzeug.security import check_password_hash
@@ -39,7 +40,8 @@ class Sha1Auth(BasicAuth):
 
 # Setup app!
 # ---
-app = Eve(auth=HMACAuth, settings='settings.py')
+SETTINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'settings.py')
+app = Eve(auth=HMACAuth, settings=SETTINGS_PATH)
 app.register_blueprint(mapviewer, url_prefix='/mapviewer')
 app.register_blueprint(website, url_prefix='/website')
 
