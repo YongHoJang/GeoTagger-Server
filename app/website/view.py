@@ -7,10 +7,10 @@ website = Blueprint('website', __name__,
 
 
 
-@website.route('/signup', method=['GET','POST'])
+@website.route('/signup', methods=['GET','POST'])
 def signup():
     error = None
     if request.method == 'POST':
-
+        pass
     #user = mongo.accounts.find_one({'username':'tester'})
     return render_template('signup.html')

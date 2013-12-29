@@ -17,8 +17,8 @@ ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 # MONGO CONFIG
 MONGO_HOST = 'localhost'
 MONGO_PORT = 27017
-#MONGO_USERNAME = 'ebdadmin'
-#MONGO_USERNAME = 'ebd.@dmin!'
+#MONGO_USERNAME = 'admin'
+#MONGO_USERNAME = '@dmin!'
 MONGO_DBNAME = 'api4k'
 
 # Data Models
