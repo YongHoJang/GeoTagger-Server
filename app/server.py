@@ -39,7 +39,7 @@ class Sha1Auth(BasicAuth):
 
 # Setup app!
 # ---
-app = Eve(auth=HMACAuth)
+app = Eve(auth=HMACAuth, settings='settings.py')
 app.register_blueprint(mapviewer, url_prefix='/mapviewer')
 app.register_blueprint(website, url_prefix='/website')
 
