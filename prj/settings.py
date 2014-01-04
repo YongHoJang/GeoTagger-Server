@@ -2,8 +2,6 @@ from schemas import domain
 from pymongo import MongoClient
 
 
-SERVER_NAME = '0.0.0.0:5000'
-
 
 # Enable reads (GET), inserts (POST) and DELETE for resources/collections
 # (if you omit this line, the API will default to ['GET'] and provide

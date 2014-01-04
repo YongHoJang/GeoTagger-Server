@@ -1,5 +1,10 @@
-# SCHEMAS
+from authentication import HMACAuth, Sha1Auth
+        
+# Current API authentication method, make an instance        
+hmacauth = HMACAuth()
 
+# SCHEMAS
+# -------
 schema_location = {
     'desc': {
         'type': 'string',
@@ -130,21 +135,19 @@ schema_location = {
 }
 
 
+
 location = {
-
     'item_title': 'location',
-
     # We choose to override global cache-control directives for this resource.
     'cache_control': 'max-age=10,must-revalidate',
     'cache_expires': 10,
-
     # most global settings can be overridden at resource level
     'resource_methods': ['GET', 'POST'],
-
-    'schema': schema_location
+    'schema': schema_location,
+    'authentication': hmacauth
 }
 
 domain = {
-    'location': location,
+    'locations': location,
 }
 
