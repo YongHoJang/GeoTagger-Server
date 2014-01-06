@@ -28,6 +28,6 @@ class Sha1Auth(BasicAuth):
         accounts = app.data.driver.db['accounts']
         account = accounts.find_one({'username': username})
         # If you saved a hashed password in db.
-        return account and assword == account['password'] 
+        return account and (password == account['password']) 
         # If you saved a clear text password
         #return account and check_password_hash(account['password'], password) 

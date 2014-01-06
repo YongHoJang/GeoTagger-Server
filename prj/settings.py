@@ -23,6 +23,12 @@ MONGO_DBNAME = 'api4k'
 DOMAIN = domain
 
 
+# Account Package Settings
+is_username_email = True
+using_email_validation = True
+
+
+
 
 
 
