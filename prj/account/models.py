@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 # Configuration Parameters
 # ------------------------
-encryption_method = 'pbkdf2:sha256:1000'
+encryption_method = 'pbkdf2:sha256:5000'
 
 
 class User(UserMixin):

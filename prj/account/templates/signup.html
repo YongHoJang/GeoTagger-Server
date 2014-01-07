@@ -1,15 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd"
-    >
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
     <title>Register form with HTML5 using placeholder and CSS3</title>
 </head>
 <style type="text/css">
     #wrapper {
-        width:450px;
+        width:420px;
         margin:0 auto;
-        font-family:Verdana, sans-serif;
+        font-size:13px;
+        color: #045FB4;
+        font-family: Verdana, sans-serif;
     }
     legend {
         color:#0481b1;
@@ -24,25 +24,26 @@
         font-weight:bold;
     }
     fieldset {
+        /*
         border-radius:4px;
         background: #fff; 
         background: -moz-linear-gradient(#fff, #f9fdff);
         background: -o-linear-gradient(#fff, #f9fdff);
-        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f9fdff)); /
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f9fdff));
         background: -webkit-linear-gradient(#fff, #f9fdff);
+        */
         padding:20px;
-        border-color:rgba(4, 129, 177, 0.4);
+        border-color:rgba(256, 256, 256, 0.4); */
     }
     input,
     textarea {
-        color: #373737;
+        color: #424242;
         background: #fff;
         border: 1px solid #CCCCCC;
-        color: #aaa;
         font-size: 14px;
         line-height: 1.2em;
-        margin-bottom:15px;
-
+        margin-top:5px;
+        margin-bottom:10px;
         -moz-border-radius:4px;
         -webkit-border-radius:4px;
         border-radius:4px;
@@ -52,14 +53,14 @@
     input[type="password"]{
         padding: 8px 6px;
         height: 22px;
-        width:280px;
+        width:350px;
     }
     input[type="text"]:focus,
     input[type="password"]:focus {
-        background:#f5fcfe;
+        /*background:#f5fcfe; */
         text-indent: 0;
         z-index: 1;
-        color: #373737;
+        color: #383838;
         -webkit-transition-duration: 400ms;
         -webkit-transition-property: width, background;
         -webkit-transition-timing-function: ease;
@@ -69,11 +70,11 @@
         -o-transition-duration: 400ms;
         -o-transition-property: width, background;
         -o-transition-timing-function: ease;
-        width: 380px;
+        width: 350px;
         
         border-color:#ccc;
         box-shadow:0 0 5px rgba(4, 129, 177, 0.5);
-        opacity:0.6;
+        /* opacity:0.8; */
     }
     input[type="submit"]{
         background: #222;
@@ -82,9 +83,9 @@
         text-transform:uppercase;
         color: #eee;
         cursor: pointer;
-        font-size: 15px;
+        font-size: 14px;
         margin: 5px 0;
-        padding: 5px 22px;
+        padding: 5px 17px;
         -moz-border-radius: 4px;
         border-radius: 4px;
         -webkit-border-radius:4px;
@@ -94,6 +95,7 @@
     }
     textarea {
         padding:3px;
+        margin:5px;
         width:96%;
         height:100px;
     }
@@ -101,41 +103,33 @@
         background:#ebf8fd;
         text-indent: 0;
         z-index: 1;
-        color: #373737;
-        opacity:0.6;
-        box-shadow:0 0 5px rgba(4, 129, 177, 0.5);
+        color: #141414;
+        opacity:0.2;
+        box-shadow:0 0 3px rgba(4, 129, 177, 0.5);
         border-color:#ccc;
     }
     .small {
         line-height:14px;
         font-size:12px;
-        color:#999898;
+        /*color:#999898; */
         margin-bottom:3px;
     }
 </style>
 <body>
     <div id="wrapper">
-        <form action="" method="post">
+        {% from "_formhelpers.html" import render_field %}
+        <form method="post" action="{{ url_for('.signup') }}">
             <fieldset>
-                <legend>Signup</legend>
-                <div>
-                    <input type="text" name="first_name" placeholder="First Name"/>
-                </div>
-                <div>
-                    <input type="text" name="last_name" placeholder="Last Name"/>
-                </div>
-                <div>
-                    <input type="password" name="first_name" placeholder="Password"/>
-                </div>
-                <div>
-                    <input type="text" name="email" placeholder="Email"/>
-                </div>
-                <div>
-                    <div class="small">this textarea is just for test so you can see the placeholder working on textarea as well</div>
-                    <textarea name="message" placeholder="Message"></textarea>
-                </div>    
-                <input type="submit" name="submit" value="Send"/>
-            </fieldset>    
+            <legend>Signup</legend>
+            {{ render_field(form.email) }}
+            {{ render_field(form.email_confirm) }}
+            {{ render_field(form.firstname) }}
+            {{ render_field(form.middlename) }}
+            {{ render_field(form.lastname) }}
+            {{ render_field(form.password) }}
+            {{ render_field(form.confirm) }}
+            <p><input type="submit" value="Register">
+            </fieldset>
         </form>
     </div>
 </body>
