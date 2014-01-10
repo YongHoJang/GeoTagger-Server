@@ -1,4 +1,6 @@
 from wtforms import Form, BooleanField, TextField, PasswordField, validators
+from flask_wtf import RecaptchaField
+
 
 class RegistrationForm(Form):
     #username = TextField('Username', [validators.Length(min=4, max=25)])
@@ -13,6 +15,7 @@ class RegistrationForm(Form):
         validators.EqualTo('confirm', message='Passwords must match'),
         validators.length(min=8, max=35)])
     confirm = PasswordField('Repeat Password')
+    recaptcha = RecaptchaField()
     
     
 class LoginForm(Form):

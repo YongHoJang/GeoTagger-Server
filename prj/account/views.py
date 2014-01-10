@@ -37,7 +37,7 @@ def signup():
 def login():
     error = None
     form = LoginForm(request.form)
-    if request.method == 'POST' and form.validate():
+    if form.validate_on_submit():
         # login and validate the user...
         email = form.email.data
         password = form.password.data
