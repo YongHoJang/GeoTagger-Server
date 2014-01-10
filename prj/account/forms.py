@@ -7,11 +7,14 @@ class RegistrationForm(Form):
         validators.EqualTo('email_confirm', message='Email must match') ])
     email_confirm = TextField('Repeat Email')
     firstname = TextField('First Name', [validators.Length(min=1, max=30)])
-    middlename = TextField('Middle Name', [validators.Length(min=1, max=30)])
+    middlename = TextField('Middle Name', [validators.Length(min=0, max=30)])
     lastname = TextField('Last Name', [validators.Length(min=1, max=30)])
-    password = PasswordField('New Password', [
-        validators.Required(),
+    password = PasswordField('New Password', [ validators.Required(),
         validators.EqualTo('confirm', message='Passwords must match'),
-        validators.length(min=8, max=35)
-    ])
+        validators.length(min=8, max=35)])
     confirm = PasswordField('Repeat Password')
+    
+    
+class LoginForm(Form):
+    email = TextField('Email (Your username)')
+    password = PasswordField('Password')

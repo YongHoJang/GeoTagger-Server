@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
-    <title>Register form with HTML5 using placeholder and CSS3</title>
+    <title>Login</title>
 </head>
 <style type="text/css">
     #wrapper {
@@ -122,17 +122,12 @@
         {% if error %}
         {{ error }}<br/><br/>
         {% endif %}
-        <form method="post" action="{{ url_for('.signup') }}">
+        <form method="post" action="{{ url_for('.login') }}">
             <fieldset>
-            <legend>Signup</legend>
+            <legend>Login</legend>
             {{ render_field(form.email) }}
-            {{ render_field(form.email_confirm) }}
-            {{ render_field(form.firstname) }}
-            {{ render_field(form.middlename) }}
-            {{ render_field(form.lastname) }}
             {{ render_field(form.password) }}
-            {{ render_field(form.confirm) }}
-            <p><input type="submit" value="Register">
+            <p><input type="submit" value="Login">
             </fieldset>
         </form>
     </div>
