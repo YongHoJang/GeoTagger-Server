@@ -3,18 +3,24 @@ from flask import url_for
 from jinja2 import TemplateNotFound
 from flask import current_app
 from models import User
-from forms import RegistrationForm, LoginForm
+from forms import RegistrationForm, RecaptchaRegistrationForm, LoginForm
 from flask.ext.login import LoginManager, login_user, login_required
 from flask.ext.login import logout_user, current_user
+from settings import RECAPTCHA_ENABLED
 
-account_views = Blueprint('account', __name__, template_folder='templates')
 
+user_views = Blueprint('user', __name__, template_folder='templates')
 
 
 @account_views.route('/signup', methods=['GET','POST'])
 def signup():
     error = None
-    form = RegistrationForm(request.form)
+    
+    if RECAPTCHA_ENABLED:
+        form = RecaptchaRegistrationForm(request.form)
+    else:
+        form = RegistrationForm(request.form)
+        
     if request.method == 'POST' and form.validate():
         #user = User(form.username.data, form.email.data,
         #                   form.password.data)
@@ -78,7 +84,7 @@ def index():
 def testuser():
     if request.method == 'GET':
         # Check if the user exists.
-        username = 'tester@email.com'
+        username = 'tester1@email.com'
         email = username
         new_user = User.get_with_username(username)
         if new_user is not None:

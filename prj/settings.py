@@ -27,7 +27,10 @@ DOMAIN = domain
 is_username_email = True
 using_email_validation = True
 
-# WTF Configuration
+
+# Not in framework, I added to give option to use RECAPTCHA
+RECAPTCHA_ENABLED = False 
+# WTF Configuration for Rechaptcha
 RECAPTCHA_USE_SSL = False
 RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'
 RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'

@@ -55,7 +55,7 @@ class User(UserMixin):
         obj_str = json.dumps(self, default=lambda o: o.__dict__)
         obj = json.loads(obj_str)
         #print 'new user json is: %s' % obj_str
-        mongo.db.accounts.update({'username':self.username},obj, upsert=True)
+        mongo.db.users.update({'username':self.username},obj, upsert=True)
         
         
         
@@ -63,7 +63,7 @@ class User(UserMixin):
     def create(username, password, firstname, middlename, lastname, email):
         mongo = current_app._get_current_object().data.driver
         # To check if username is already existing.
-        user = mongo.db.accounts.find_one({'username': username})
+        user = mongo.db.users.find_one({'username': username})
         if user:
             return None # the username is already existing. Throw an exception.
         else:
@@ -87,7 +87,7 @@ class User(UserMixin):
         current_app object.
         '''
         mongo = current_app._get_current_object().data.driver
-        user = mongo.db.accounts.find_one({'username': username})
+        user = mongo.db.users.find_one({'username': username})
         
         if user is None:
             return None
@@ -103,9 +103,7 @@ class User(UserMixin):
     @staticmethod
     def get_with_userid(userid):
         mongo = current_app._get_current_object().data.driver
-        print 'userid is:', userid
-        user = mongo.db.accounts.find_one({'_id': ObjectId(userid)})
-        print 'user is:', user
+        user = mongo.db.users.find_one({'_id': ObjectId(userid)})
         return User.get_with_username(username=user['username'])
         
                 

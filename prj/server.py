@@ -1,9 +1,9 @@
 import os
 from eve import Eve
-from account.views import account_views
+from user.views import user_views
 from flask.ext.login import LoginManager
-from account.models import User
-from account.views import login
+from user.models import User
+from user.views import login
 
 
 # Setup app!
@@ -12,7 +12,7 @@ SETTINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'settin
 app = Eve(settings=SETTINGS_PATH)
 
 # Blueprint Configuration
-app.register_blueprint(account_views, url_prefix='/account')
+app.register_blueprint(user_views, url_prefix='/user')
 
 # TODO: Need to configure it for individual application
 app.secret_key = 'B1Xp83k/4qY1S~GIH!jnM]KES/,?CT'
@@ -21,7 +21,7 @@ app.secret_key = 'B1Xp83k/4qY1S~GIH!jnM]KES/,?CT'
 login_manager = LoginManager()
 login_manager.session_protection = "strong"
 login_manager.init_app(app)
-login_manager.login_view = '/account/login'
+login_manager.login_view = '/user/login'
 
 
 # Required method to connect Flask-Login with custom User class

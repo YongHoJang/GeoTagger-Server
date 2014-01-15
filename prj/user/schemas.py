@@ -1,3 +1,9 @@
+from authentication import HMACAuth, Sha1Auth
+
+# Current API authentication method, make an instance        
+hmacauth = HMACAuth()
+
+
 schema_user = {
     'username': {
         'type': 'string',
@@ -53,11 +59,13 @@ schema_user = {
 
 }
 
-user = {
+
+email_regex = "\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+users = {
     'item_title': 'user',
     # Additional lookup with username
     'additional_lookup': {
-        'url': 'regex("[\w]+")',
+        'url': 'regex("%s")' % email_regex,
         'field': 'username'
     },    
     # We choose to override global cache-control directives for this resource.
@@ -66,4 +74,5 @@ user = {
     # most global settings can be overridden at resource level
     'resource_methods': ['GET', 'POST'],
     'schema': schema_user,
+    #'authentication': hmacauth
 }

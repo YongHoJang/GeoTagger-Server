@@ -1,5 +1,5 @@
-from authentication import HMACAuth, Sha1Auth
-from account.schemas import user
+from account.authentication import HMACAuth, Sha1Auth
+from account.schemas import users
         
 # Current API authentication method, make an instance        
 hmacauth = HMACAuth()
@@ -137,7 +137,7 @@ schema_location = {
 
 
 
-location = {
+locations = {
     'item_title': 'location',
     # We choose to override global cache-control directives for this resource.
     'cache_control': 'max-age=10,must-revalidate',
@@ -149,7 +149,7 @@ location = {
 }
 
 domain = {
-    'locations': location,
-    'user': user,
+    'locations': locations,
+    'users': users,
 }
 
