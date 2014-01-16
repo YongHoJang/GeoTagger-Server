@@ -4,15 +4,16 @@ from jinja2 import TemplateNotFound
 from flask import current_app
 from models import User
 from forms import RegistrationForm, RecaptchaRegistrationForm, LoginForm
-from flask.ext.login import LoginManager, login_user, login_required
+from flask.ext.login import login_user, login_required
 from flask.ext.login import logout_user, current_user
+from flask.ext.mail import Message, Mail
 from settings import RECAPTCHA_ENABLED
 
 
 user_views = Blueprint('user', __name__, template_folder='templates')
 
 
-@account_views.route('/signup', methods=['GET','POST'])
+@user_views.route('/signup', methods=['GET','POST'])
 def signup():
     error = None
     
@@ -39,22 +40,20 @@ def signup():
     return render_template('signup.html', form=form, error=error)
     
     
-@account_views.route('/login', methods=['GET','POST'])
+@user_views.route('/login', methods=['GET','POST'])
 def login():
     error = None
     form = LoginForm(request.form)
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate():
         # login and validate the user...
         email = form.email.data
         password = form.password.data
         user = User.get_with_username(email)
-        print 'hi'
-        print 'active:', user.is_active()
+
         if user and user.is_active() and not user.is_anonymous():
             if user.authenticate(password):
                 login_user(user)
                 flash("Logged in successfully.")
-                print 'you logged in'
                 return redirect(request.args.get("next") or url_for(".index"))
             else:
                 error = "Your username or password is not valid"
@@ -62,25 +61,45 @@ def login():
     return render_template("login.html", form=form, error=error)
 
 
-@account_views.route('/logout')
+@user_views.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect('/')  
+    return render_template('logout.html')  
     
 
-@account_views.route('/')
+@user_views.route('/')
 @login_required
 def index():
     firstname = current_user.firstname
     lastname = current_user.lastname
-    print 'fistname', firstname
     return render_template("index.html", firstname=firstname, lastname=lastname)
+
+
+@user_views.route('/emailappkey')
+@login_required
+def email_appkey():
+    # Get user info
+    # generate new key and send it in email
+    new_appkey = current_user.generate_appkey()
+    current_user.save()
+    # Email new appkey
+    mail = Mail(current_app._get_current_object())
+    message = Message("Your new appkey for 4k mobile app",
+        sender='fourkayproject@gmail.com',
+        recipients=[current_user.email])
+    message.body = ('Your New Appkey: %s' % new_appkey)
+    
+
+    mail.send(message)
+    
+    flash("New appkey has been send to your email.", category='index_page')
+    return redirect(url_for('.index'))
 
 
 # TODO: Delete test methods
 #
-@account_views.route('/testuser', methods=['GET'])
+@user_views.route('/testuser', methods=['GET'])
 def testuser():
     if request.method == 'GET':
         # Check if the user exists.
@@ -97,7 +116,7 @@ def testuser():
     return "Created a test user"
     
     
-@account_views.route('/testanotheruser', methods=['GET'])
+@user_views.route('/testanotheruser', methods=['GET'])
 def testanother():
     if request.method == 'GET':
         new_user = User.get_with_username('tester3')

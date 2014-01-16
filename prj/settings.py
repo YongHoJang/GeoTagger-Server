@@ -29,11 +29,20 @@ using_email_validation = True
 
 
 # Not in framework, I added to give option to use RECAPTCHA
-RECAPTCHA_ENABLED = False 
+RECAPTCHA_ENABLED = True 
 # WTF Configuration for Rechaptcha
 RECAPTCHA_USE_SSL = False
 RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'
 RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
+
+# Flask-Mail configuration
+MAIL_SERVER = 'smtp.gmail.com'
+MAIL_PORT = 465
+MAIL_USE_SSL = True
+MAIL_USERNAME = 'fourkayproject@gmail.com'
+MAIL_PASSWORD = ''
+DEFAULT_MAIL_SENDER = MAIL_USERNAME
+
 
 
 

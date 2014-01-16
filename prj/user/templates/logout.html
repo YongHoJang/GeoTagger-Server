@@ -3,7 +3,7 @@
 <head>
     <title>User Page</title>
 </head>
-{% with messages = get_flashed_messages(category_filter=["index_page"]) %}
+{% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul class=flashes>
     {% for message in messages %}
@@ -13,14 +13,8 @@
   {% endif %}
 {% endwith %}
 <body>
-    Welcome {{ firstname }} {{ lastname }}! &nbsp;&nbsp;&nbsp;
-    <a href="{{ url_for('.logout')}}">logout</a><br/>
-    <div>
-        <a href="{{ url_for('.email_appkey')}}">Email New Appkey</a>
-    </div>
-    <div>
-        {{ mssg }}
-    </div>
+    See you later! &nbsp;&nbsp;&nbsp;
+    <a href="{{ url_for('.login')}}">Go to login page</a>    
     
 </body>
 

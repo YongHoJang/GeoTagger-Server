@@ -30,7 +30,7 @@ class User(UserMixin):
         self.email = email
         self.password_hash = password_hash
         self.userid = userid
-        self.appkey = self.generate_appkey()
+        self.generate_appkey()
     
     
     def authenticate(self, password):
@@ -47,6 +47,7 @@ class User(UserMixin):
         key_length = 8
         key_chars = string.ascii_lowercase + string.digits
         appkey = ''.join(random.choice(key_chars) for x in range(key_length))
+        self.appkey = appkey
         return appkey
     
         
@@ -73,8 +74,7 @@ class User(UserMixin):
            
             new_user = User(username=username, password_hash=password_hash,
                 firstname=firstname, middlename=middlename, lastname=lastname,
-                email=email, active=False, anonymous=False,
-                validated=False)
+                email=email, active=True, anonymous=False, validated=False)
         
             return new_user       
         
