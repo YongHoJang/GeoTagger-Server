@@ -19,8 +19,10 @@ def signup():
     
     if RECAPTCHA_ENABLED:
         form = RecaptchaRegistrationForm(request.form)
+        template = 'signup_recaptcha.html'
     else:
         form = RegistrationForm(request.form)
+        template = 'signup.html'
         
     if request.method == 'POST' and form.validate():
         #user = User(form.username.data, form.email.data,
@@ -37,7 +39,7 @@ def signup():
         else:
             error = 'Your email has been already used! Use new email address.'
             
-    return render_template('signup.html', form=form, error=error)
+    return render_template(template, form=form, error=error)
     
     
 @user_views.route('/login', methods=['GET','POST'])
