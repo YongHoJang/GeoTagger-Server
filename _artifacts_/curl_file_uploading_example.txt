@@ -1,0 +1,3 @@
+curl -X POST -d @myfilename http://user:pass@myhost/hudson/job/_jobName_/postBuildResult
+
+curl -F file=@t.c http://127.0.0.1:6000/uploads/t_c
