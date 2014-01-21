@@ -132,6 +132,7 @@
             {{ render_field(form.lastname) }}
             {{ render_field(form.password) }}
             {{ render_field(form.confirm) }}
+            {{ config.RECAPTCHA_ENABLED }}
             {% if config.RECAPTCHA_ENABLED %}
             {{ form.recaptcha }}
             {% endif %}
