@@ -1,0 +1,13 @@
+<VirtualHost *>
+    ServerName 198.61.224.33
+
+    WSGIDaemonProcess mserver user=mserver group=mserver threads=5
+    WSGIScriptAlias / /home/mserver/ENV/4K-mobile-app-server/mserver.wsgi
+
+    <Directory /home/mserver/ENV/4K-mobile-app-server>
+        WSGIProcessGroup mserver
+        WSGIApplicationGroup %{GLOBAL}
+        Order deny,allow
+        Allow from all
+    </Directory>
+</VirtualHost>
