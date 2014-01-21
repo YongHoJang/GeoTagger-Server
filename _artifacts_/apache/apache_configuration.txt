@@ -1,8 +1,8 @@
-<VirtualHost *>
+<VirtualHost *:80>
     ServerName 198.61.224.33
 
     WSGIDaemonProcess mserver user=mserver group=mserver threads=5
-    WSGIScriptAlias / /home/mserver/ENV/4K-mobile-app-server/mserver.wsgi
+    WSGIScriptAlias / /home/mserver/ENV/4K-mobile-app-server/prj/mobileserver.wsgi
 
     <Directory /home/mserver/ENV/4K-mobile-app-server>
         WSGIProcessGroup mserver
