@@ -3,5 +3,4 @@ include/
 lib/
 **/*.pyc
 .Python
-**/*.wsgi
 
