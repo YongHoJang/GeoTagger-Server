@@ -27,8 +27,9 @@ login_manager.login_view = '/user/login'
 
 # Required method to connect Flask-Login with custom User class
 @login_manager.user_loader
-def load_user(userid):
-    return User.get_with_userid(userid)
+def load_user(username):
+    print 'load_user- userid', username
+    return User.get_with_username(username)
 
 
 if __name__ == '__main__':

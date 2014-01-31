@@ -32,6 +32,7 @@ using_email_validation = True
 RECAPTCHA_ENABLED = False 
 # WTF Configuration for Rechaptcha
 RECAPTCHA_USE_SSL = False
+# These keys are for a testing purpose
 RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'
 RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
 
@@ -39,7 +40,7 @@ RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
 MAIL_SERVER = 'smtp.gmail.com'
 MAIL_PORT = 465
 MAIL_USE_SSL = True
-MAIL_USERNAME = 'fourkayproject@gmail.com'
+MAIL_USERNAME = ''
 MAIL_PASSWORD = ''
 DEFAULT_MAIL_SENDER = MAIL_USERNAME
 

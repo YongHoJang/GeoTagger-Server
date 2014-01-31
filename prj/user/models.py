@@ -18,7 +18,7 @@ class User(UserMixin):
     User object that will be managed by Flask-Login and work with MongoDB
     '''
     def __init__(self, username, firstname, middlename, lastname, email, 
-        active, anonymous, validated, userid='', password_hash=''):   
+        active, anonymous, validated, password_hash=''):   
         self.active = active
         self.anonymous = anonymous
         self.validated = validated
@@ -29,7 +29,6 @@ class User(UserMixin):
         self.lastname = lastname
         self.email = email
         self.password_hash = password_hash
-        self.userid = userid
         self.generate_appkey()
     
     
@@ -49,7 +48,11 @@ class User(UserMixin):
         appkey = ''.join(random.choice(key_chars) for x in range(key_length))
         self.appkey = appkey
         return appkey
+
     
+    def update_password(self, newone):
+        self.password_hash = generate_password_hash(newone, 
+            method=encryption_method)    
         
     def save(self):
         mongo = current_app._get_current_object().data.driver
@@ -57,7 +60,6 @@ class User(UserMixin):
         obj = json.loads(obj_str)
         #print 'new user json is: %s' % obj_str
         mongo.db.users.update({'username':self.username},obj, upsert=True)
-        
         
         
     @staticmethod
@@ -92,19 +94,19 @@ class User(UserMixin):
         if user is None:
             return None
         
-        return User(username=user['username'], userid=str(user['_id']), 
-            firstname=user['firstname'], middlename=user['middlename'],
-            lastname=user['lastname'], email=user['email'],
-            password_hash=user['password_hash'], 
+        return User(username=user['username'],  firstname=user['firstname'], 
+            middlename=user['middlename'], lastname=user['lastname'], 
+            email=user['email'], password_hash=user['password_hash'], 
             validated=user['validated'], active=user['active'], 
             anonymous=False)
             
             
     @staticmethod
-    def get_with_userid(userid):
+    def get_with_userid(useroid):
         mongo = current_app._get_current_object().data.driver
-        user = mongo.db.users.find_one({'_id': ObjectId(userid)})
+        user = mongo.db.users.find_one({'_id': ObjectId(useroid)})
         return User.get_with_username(username=user['username'])
+        
         
                 
     # methods for Flask-Login user
@@ -125,9 +127,66 @@ class User(UserMixin):
     
     
     def get_id(self):
-        return self.userid        
+        return self.username       
         
         
+
+class Project:
+    '''
+    Project object that holds project information.
+    '''
+    def __init__(self, prj_name, prj_desc, owner, member_list=''):
+        self.name = prj_name
+        self.desc = prj_name
+        self.owner = owner # owner's object id (user's object id) 
+        self.member_list = member_list # object id list of members
+        self.prj_id = self.create_prj_id()
+        
+        
+    def save(self):
+        mongo = current_app._get_current_object().data.driver
+        obj_str = json.dumps(self, default=lambda o: o.__dict__)
+        obj = json.loads(obj_str)
+        #print 'new project json is: %s' % obj_str
+        mongo.db.projects.update({'prj_id':self.prj_id}, obj, upsert=True)
+        
+            
+    def create_prj_id(self):
+        '''
+        System generated project id
+        '''
+        r_num = 6 # the length of prj_id
+        char_range = string.ascii_lowercase + string.digits
+        # prj_id is one of IDs that a user need to type into an app.
+        mongo = current_app._get_current_object().data.driver
+        prj_id = ''.join(random.choice(char_range) for x in range(r_num))
+        # Check if prj_id is unique. If not, generate it again.
+        while True: 
+            prj = mongo.db.projects.find_one({'prj_id': ObjectId(useroid)})
+            if prj is None:
+                break
+            prj_id = ''.join(random.choice(char_range) for x in range(r_num))
+        
+        return prj_id
+                
+
+    @staticmethod
+    def get_projects_for_userid(useroid):
+        mongo = current_app._get_current_object().data.driver
+        projects = mongo.db.projects.find({'owner': ObjectId(useroid)})
+        print 'projects:', projects
+        return projects        
+    
+
+
+
+
+
+
+
+
+
+
         
     
     

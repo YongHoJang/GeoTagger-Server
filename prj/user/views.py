@@ -2,15 +2,18 @@ from flask import Blueprint, render_template, abort, request, redirect, flash
 from flask import url_for
 from jinja2 import TemplateNotFound
 from flask import current_app
-from models import User
+from models import User, Project
 from forms import RegistrationForm, RecaptchaRegistrationForm, LoginForm
+from forms import ChangePasswordForm, CreateProjectForm
 from flask.ext.login import login_user, login_required
 from flask.ext.login import logout_user, current_user
 from flask.ext.mail import Message, Mail
 from settings import RECAPTCHA_ENABLED
+from bson.objectid import ObjectId
 
 
-user_views = Blueprint('user', __name__, template_folder='templates')
+user_views = Blueprint('user', __name__, template_folder='templates',
+    static_folder='static')
 
 
 @user_views.route('/signup', methods=['GET','POST'])
@@ -26,6 +29,7 @@ def signup():
         #user = User(form.username.data, form.email.data,
         #                   form.password.data)
         #       db_session.add(user)
+        
         user = User.create(username=form.email.data, email=form.email.data,
             firstname=form.firstname.data, middlename=form.middlename.data, 
             lastname=form.lastname.data, password=form.password.data)
@@ -89,13 +93,50 @@ def email_appkey():
         sender='fourkayproject@gmail.com',
         recipients=[current_user.email])
     message.body = ('Your New Appkey: %s' % new_appkey)
-    
-
     mail.send(message)
-    
     flash("New appkey has been send to your email.", category='index_page')
     return redirect(url_for('.index'))
 
+
+@user_views.route('/verifyemailappkey')
+@login_required
+def verify_email_appkey():
+    return render_template("verify_email_appkey.html")
+
+
+@user_views.route('/changepassword', methods=['GET','POST'])
+@login_required
+def change_password():
+    '''
+    Change a user's password
+    '''
+    form = ChangePasswordForm(request.form)
+    if request.method == 'POST' and form.validate():
+        if current_user.check_password(form.old_password.data):
+            current_user.update_password(form.new_password.data)
+            current_user.save()
+            flash("Your password has been updated.", category='index_page')
+            return redirect(url_for('.index'))
+        else:
+            flash("Your password does not match.", category='error')
+            return render_template('change_password.html', form=form)    
+    return render_template('change_password.html', form=form)
+
+
+@user_views.route('/createproject', methods=['GET','POST'])
+@login_required
+def create_project():
+    form = CreateProjectForm(request.form)
+    
+    if request.method == 'POST' and form.validate():
+        project = Project(prj_name=form.name, prj_desc=form.desc, 
+            owner=current_user._id)
+        project.save()
+        flash("New project has been created.", category='index_page')
+        return redirect(url_for('.index'))
+        
+    return render_template('create_project.html', form=form)
+    
 
 # TODO: Delete test methods
 #

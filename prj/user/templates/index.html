@@ -1,26 +1,94 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
-<head>
-    <title>User Page</title>
-</head>
-{% with messages = get_flashed_messages(category_filter=["index_page"]) %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+
+{% include '_head.html' %}
+
+
 <body>
-    Welcome {{ firstname }} {{ lastname }}! &nbsp;&nbsp;&nbsp;
-    <a href="{{ url_for('.logout')}}">logout</a><br/>
-    <div>
-        <a href="{{ url_for('.email_appkey')}}">Email New Appkey</a>
+
+    {% include '_header.html' %}
+
+    {% with messages = get_flashed_messages(category_filter=["index_page"]) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <div class="row" style="margin-top:50px;margin-bottom:20px;">
+        <div class="span2">
+        </div>
+        <div class="span10">
+            <img src="{{ url_for('user.static', filename='img/email_24.png') }}"/>
+            <span style="font-size:18px;">
+                <a href="{{ url_for('.verify_email_appkey')}}">Email New Appkey</a>
+            </span>
+        </div>
     </div>
+    <div class="row" style="margin-bottom:20px;">
+        <div class="span2">
+        </div>
+        <div class="span10">
+            <img src="{{ url_for('user.static', filename='img/lock_24.png') }}"/>
+            <span style="font-size:18px;"><a href="{{ url_for('.change_password')}}">Change Password</a></span>
+        </div>
+    </div>
+    
+    <div class="row" style="margin-bottom:20px;">
+        <div class="span2">
+        </div>
+        <div class="span10">
+            <img src="{{ url_for('user.static', filename='img/map_24.png') }}"/>
+            <span style="font-size:18px;"><a href="{{ url_for('.create_project')}}">Create New Project</a></span>
+        </div>
+    </div>    
+
+    <!-- project list table -->
+    <div class="row">
+        <div class="span2">
+        </div>
+        <div class="span10">        
+            <table class='table'>
+        <thead>
+           <tr>
+             <th>#</th>
+             <th>Project Name</th>
+             <th>Description</th>
+             <th>Numer of memebers</th>
+           </tr>
+         </thead>
+         <tbody>             
+             
+           <tr>
+             <td>1</td>
+             <td>Mark</td>
+             <td>Otto</td>
+             <td>@mdo</td>
+           </tr>
+           <tr>
+             <td>2</td>
+             <td>Jacob</td>
+             <td>Thornton</td>
+             <td>@fat</td>
+           </tr>
+           <tr>
+             <td>3</td>
+             <td>Larry</td>
+             <td>the Bird</td>
+             <td>@twitter</td>
+           </tr>
+         </tbody>
+    </table>
+        </div>
+    </div>
+    
     <div>
         {{ mssg }}
     </div>
     
 </body>
 
+</html>
