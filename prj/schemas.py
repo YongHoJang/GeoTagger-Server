@@ -1,5 +1,5 @@
 from user.authentication import HMACAuth, Sha1Auth
-from user.schemas import users
+from user.schemas import users, projects
         
 # Current API authentication method, make an instance        
 hmacauth = HMACAuth()
@@ -151,5 +151,6 @@ locations = {
 domain = {
     'locations': locations,
     'users': users,
+    'projects': projects,
 }
 

@@ -76,3 +76,52 @@ users = {
     'schema': schema_user,
     #'authentication': hmacauth
 }
+
+
+schema_project = {
+    'owner': {
+        'type': 'string',
+        'minlength': 1,
+        'maxlength': 50,
+        'required': True,
+        'unique': True,
+    },
+    'name': {
+        'type': 'string',
+        'minlength': 1,
+        'maxlength': 200,
+        'required': True,
+    },
+    'desc': {
+        'type': 'string',
+        'minlength': 1,
+        'maxlength': 200,
+        'required': False,
+    },
+    'member_list': {
+        'type': 'list',
+    },
+    'prj_id': {
+        'type': 'string',
+        'minlength': 1,
+        'maxlength': 50,
+        'required': True,
+    },
+    
+}
+
+projects = {
+    'item_title': 'project',   
+    # Additional lookup with username
+    'additional_lookup': {
+        'url': 'regex("[\w]+")',
+        'field': 'prj_id'
+    },
+    # We choose to override global cache-control directives for this resource.
+    'cache_control': 'max-age=10,must-revalidate',
+    'cache_expires': 10,
+    # most global settings can be overridden at resource level
+    'resource_methods': ['GET', 'POST'],
+    'schema': schema_project,
+    #'authentication': hmacauth    
+}

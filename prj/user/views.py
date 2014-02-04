@@ -77,7 +77,10 @@ def logout():
 def index():
     firstname = current_user.firstname
     lastname = current_user.lastname
-    return render_template("index.html", firstname=firstname, lastname=lastname)
+    # user's project list
+    proj_list = Project.get_projects_for_username(current_user.username)
+    return render_template("index.html", firstname=firstname, 
+        lastname=lastname, prj_list=proj_list)
 
 
 @user_views.route('/emailappkey')
@@ -129,8 +132,8 @@ def create_project():
     form = CreateProjectForm(request.form)
     
     if request.method == 'POST' and form.validate():
-        project = Project(prj_name=form.name, prj_desc=form.desc, 
-            owner=current_user._id)
+        project = Project(prj_name=form.name.data, prj_desc=form.desc.data, 
+            owner=current_user.get_id())
         project.save()
         flash("New project has been created.", category='index_page')
         return redirect(url_for('.index'))
@@ -138,32 +141,6 @@ def create_project():
     return render_template('create_project.html', form=form)
     
 
-# TODO: Delete test methods
-#
-@user_views.route('/testuser', methods=['GET'])
-def testuser():
-    if request.method == 'GET':
-        # Check if the user exists.
-        username = 'tester1@email.com'
-        email = username
-        new_user = User.get_with_username(username)
-        if new_user is not None:
-            return "The test user already exists!"
-            
-        new_user = User.create(username,'easyas123','Min','Seong','Kang',
-            email)
-        new_user.active = True
-        new_user.save()
-    return "Created a test user"
     
-    
-@user_views.route('/testanotheruser', methods=['GET'])
-def testanother():
-    if request.method == 'GET':
-        new_user = User.get_with_username('tester3')
-        if new_user == None:
-            return "The test user already exists!"
-        new_user.save()
-    return "Created a test user"
-        
+
 
