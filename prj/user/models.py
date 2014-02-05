@@ -222,7 +222,16 @@ class Project:
         
         return prj_list        
     
-
+    @staticmethod
+    def get_project_for_projectid(prj_id):
+        mongo = current_app._get_current_object().data.driver
+        row = mongo.db.projects.find_one({'prj_id': prj_id})
+        if row is not None:
+            prj = Project(prj_name=row['name'], prj_desc=row['desc'],
+                owner=row['owner'], prj_id=row['prj_id'])
+            return prj  
+        else:
+            return None
 
 
 

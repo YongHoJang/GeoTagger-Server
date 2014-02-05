@@ -42,7 +42,7 @@
         </div>
         <div class="span10">
             <img src="{{ url_for('user.static', filename='img/map_24.png') }}"/>
-            <span style="font-size:18px;"><a href="{{ url_for('.create_project')}}">Create New Project</a></span>
+            <span style="font-size:18px;"><a href="{{ url_for('.create_project') }}">Create New Project</a></span>
         </div>
     </div>    
 
@@ -63,7 +63,7 @@
                 <tbody>             
                     {%  for prj in prj_list %}
                     <tr>
-                        <td>{{ prj.name }}</td>
+                        <td><a href="{{ url_for('.view_project', prj_id = prj.prj_id) }}/">{{ prj.name }}</a></td>
                         <td>{{ prj.prj_id }}</td>
                         <td>{{ prj.desc }}</td>
                         <td></td>

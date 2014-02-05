@@ -139,8 +139,20 @@ def create_project():
         return redirect(url_for('.index'))
         
     return render_template('create_project.html', form=form)
-    
 
+
+@user_views.route('/project/<prj_id>', methods=['GET','POST'])
+@login_required    
+def view_project(prj_id):
+    prj = Project.get_project_for_projectid(prj_id)
+    
+    if prj is not None and (prj.owner == current_user.username):
+        return render_template('project_list.html', prj=prj)
+    
+    return render_template('404.html')
+    
+    
+    
     
 
 
