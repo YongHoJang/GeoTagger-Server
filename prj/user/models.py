@@ -7,12 +7,23 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 
 
-
 # Configuration Parameters
 # ------------------------
 encryption_method = 'pbkdf2:sha256:5000'
 
 
+# Custom Exception
+# 
+class NotUniqueException(Exception):
+    '''
+    If an object to handle is not unique and already exists in a system.
+    '''
+    def __init__(self, mssg):
+        self.mssg = mssg
+
+
+# Classes
+#
 class User(UserMixin):
     '''
     User object that will be managed by Flask-Login and work with MongoDB.
@@ -130,17 +141,7 @@ class User(UserMixin):
     
     def get_id(self):
         return self.username       
-        
-'''
-class ProjectMember:
-    def __init__(self, firstname, middlename, lastname, email):
-        self.firstname = firstname
-        self.middlename = middlename
-        self.lastname = lastname
-        self.email = email
-'''         
-    
-        
+                  
 
 class Project:
     '''
@@ -186,25 +187,37 @@ class Project:
         return prj_id
         
         
-    def add_member(self, firstname, lastname, member_email, middlename=''):
+    def add_member(self, name, email):
         '''
         Add a member of a project.
         Check if new member's email exists in the member list, and if not, add
         the member to the member list.
         '''
+        # Before checking, create a list of member emails
         email_list = {}
         for m in self.member_list:
-            email_list[m.email] = True
-        
-        if meber_email not in email_list.keys():            
-            new_member = []
-            new_member['firstname'] = firstname
-            new_member['middlename'] = middlename
-            new_member['lastname'] = lastname
-            new_member['email'] = member_email
-            self.member_list.append(new_member)
-                
+            email_list[m['email']] = True
 
+        # Check if new member email is already in member email list
+        if email not in email_list.keys():  
+            new_member = {}
+            new_member['name'] = name
+            new_member['email'] = email
+            self.member_list.append(new_member)
+            # save
+            self.save()
+        else: # Need to inform user
+            raise NotUniqueException('New member email already exists!')
+      
+    def delete_member(self, email):
+        for mem in self.member_list:
+            if mem['email'] == email:
+                self.member_list.remove(mem)
+        self.save()
+            
+    
+    # CLASS METHODS
+    # -----    
     @staticmethod
     def get_projects_for_username(username):
         '''
@@ -217,7 +230,9 @@ class Project:
         for row in projects:
             print 'project row', row
             prj = Project(prj_name=row['name'], prj_desc=row['desc'],
-                owner=username, prj_id=row['prj_id'])  
+                owner=username, prj_id=row['prj_id'], 
+                member_list=row['member_list'])
+            #prj.member_list = json.loads(row['member_list'])  
             prj_list.append(prj)
         
         return prj_list        
@@ -228,13 +243,30 @@ class Project:
         row = mongo.db.projects.find_one({'prj_id': prj_id})
         if row is not None:
             prj = Project(prj_name=row['name'], prj_desc=row['desc'],
-                owner=row['owner'], prj_id=row['prj_id'])
+                owner=row['owner'], prj_id=row['prj_id'], 
+                member_list=row['member_list'])
+            #prj.member_list = json.loads(row['member_list'])    
             return prj  
         else:
             return None
 
 
-
+class ProjectMemberKey:
+    def __init__(self, prj_id, member_email, appkey):
+        self.prj_id = prj_id
+        self.member_email = member_email
+        self.appkey = appkey
+        
+    def save(self):
+        mongo = current_app._get_current_object().data.driver
+        obj_str = json.dumps(self, default=lambda o: o.__dict__)
+        obj = json.loads(obj_str)
+        #print 'new project json is: %s' % obj_str
+        mongo.db.project_member_key.update(
+            {'prj_id':self.prj_id,'member_email':self.member_email}, 
+            obj, upsert=True)
+        
+    
 
 
 

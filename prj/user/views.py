@@ -1,14 +1,17 @@
+import settings
+import utils
 from flask import Blueprint, render_template, abort, request, redirect, flash
 from flask import url_for
 from jinja2 import TemplateNotFound
 from flask import current_app
-from models import User, Project
+from models import User, Project, ProjectMemberKey
+from models import NotUniqueException
 from forms import RegistrationForm, RecaptchaRegistrationForm, LoginForm
-from forms import ChangePasswordForm, CreateProjectForm
+from forms import ChangePasswordForm, CreateProjectForm, AddProjectMemberForm
 from flask.ext.login import login_user, login_required
 from flask.ext.login import logout_user, current_user
 from flask.ext.mail import Message, Mail
-from settings import RECAPTCHA_ENABLED
+from settings import RECAPTCHA_ENABLED, APPKEY_LENGTH
 from bson.objectid import ObjectId
 
 
@@ -79,8 +82,7 @@ def index():
     lastname = current_user.lastname
     # user's project list
     proj_list = Project.get_projects_for_username(current_user.username)
-    return render_template("index.html", firstname=firstname, 
-        lastname=lastname, prj_list=proj_list)
+    return render_template("index.html", prj_list=proj_list)
 
 
 @user_views.route('/emailappkey')
@@ -91,12 +93,18 @@ def email_appkey():
     new_appkey = current_user.generate_appkey()
     current_user.save()
     # Email new appkey
-    mail = Mail(current_app._get_current_object())
-    message = Message("Your new appkey for 4k mobile app",
-        sender='fourkayproject@gmail.com',
-        recipients=[current_user.email])
-    message.body = ('Your New Appkey: %s' % new_appkey)
-    mail.send(message)
+    if settings.MAIL_SERVER:
+        mail = Mail(current_app._get_current_object())
+        message = Message("Your new appkey for 4k mobile app",
+            sender='fourkayproject@gmail.com',
+            recipients=[current_user.email])
+        message.body = ( 'Project ID: %s \nAppkey: %s' % (prj_id, key) )
+        mail.send(message)
+        flash("New appkey has been send to your email.", category='info')
+    else:
+        flash("Can not email because email server is not availalbe. " +  
+            "Contact administrator", category='error')
+    #
     flash("New appkey has been send to your email.", category='index_page')
     return redirect(url_for('.index'))
 
@@ -126,7 +134,7 @@ def change_password():
     return render_template('change_password.html', form=form)
 
 
-@user_views.route('/createproject', methods=['GET','POST'])
+@user_views.route('/projects/add', methods=['GET','POST'])
 @login_required
 def create_project():
     form = CreateProjectForm(request.form)
@@ -141,17 +149,70 @@ def create_project():
     return render_template('create_project.html', form=form)
 
 
-@user_views.route('/project/<prj_id>', methods=['GET','POST'])
+@user_views.route('/projects/<prj_id>', methods=['GET','POST'])
 @login_required    
 def view_project(prj_id):
     prj = Project.get_project_for_projectid(prj_id)
-    
     if prj is not None and (prj.owner == current_user.username):
-        return render_template('project_list.html', prj=prj)
+        return render_template('project_view.html', prj=prj)
     
     return render_template('404.html')
     
+
+@user_views.route('/projects/<prj_id>/members/add', methods=['GET','POST'])
+@login_required    
+def add_project_member(prj_id):
+    form = AddProjectMemberForm(request.form)
+    if request.method == 'POST' and form.validate():
+        try:
+        # Add new member to project
+            proj = Project.get_project_for_projectid(prj_id)
+            proj.add_member(name=form.name.data, email=form.email.data)
+            flash("New member has been added.")
+            return redirect(url_for('.view_project', prj_id=prj_id))   
+        except NotUniqueException:
+            flash("The member email already exists. Can not add it.", 
+                category="error")
+            return render_template('add_project_member.html', form=form, 
+                prj_id=prj_id)
+        else:
+            print 'Another exception is raised.'
+    # if method is GET, show a form.        
+    return render_template('add_project_member.html', form=form, prj_id=prj_id)    
     
+
+@user_views.route('/projects/<prj_id>/members/<member_email>/delete', 
+    methods=['GET'])
+@login_required    
+def delete_project_member(prj_id, member_email):
+    proj = Project.get_project_for_projectid(prj_id)
+    proj.delete_member(member_email)
+    return redirect(url_for('.view_project', prj_id=prj_id))    
+    
+    
+@user_views.route('/projects/<prj_id>/members/<member_email>/newappkey', 
+    methods=['GET'])
+@login_required
+def email_member_newappkey(prj_id, member_email):
+    key = utils.generate_appkey(APPKEY_LENGTH)
+    prjmemkey = ProjectMemberKey(prj_id=prj_id, member_email=member_email,
+        appkey=key)
+    prjmemkey.save()
+    # email new
+    if settings.MAIL_SERVER:
+        mail = Mail(current_app._get_current_object())
+        message = Message("Your new appkey for 4k mobile app",
+            sender='fourkayproject@gmail.com',
+            recipients=[member_email])
+        message.body = ( 'Project ID: %s \nAppkey: %s' % (prj_id, key) )
+        mail.send(message)
+        flash("New appkey has been send to your email.", category='info')
+    else:
+        flash("Can not email because email server is not availalbe. " +  
+            "Contact administrator", category='error')
+    return redirect(url_for('.view_project', prj_id=prj_id))  
+
+     
     
     
 

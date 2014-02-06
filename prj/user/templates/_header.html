@@ -2,7 +2,7 @@
     <div class="span8">
     </div>
     <div class="span4">
-        <span style="margin-right:30px;">Welcome {{ firstname }} {{ lastname }}</span>
+        <span style="margin-right:30px;">Welcome {{ current_user.firstname }} {{ current_user.lastname }}</span>
         <span><a href="{{ url_for('.logout')}}">logout</a></span>
     </div>
 </div>

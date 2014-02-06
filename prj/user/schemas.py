@@ -125,3 +125,39 @@ projects = {
     'schema': schema_project,
     #'authentication': hmacauth    
 }
+
+
+schema_project_member_key = {
+    'prj_id': {
+        'type': 'string',
+        'minlength': 1,
+        'maxlength': 100,
+        'required': True,
+    },
+    'member_email': {
+        'type': 'string',
+        'minlength': 1,
+        'maxlength': 100,
+        'required': True,
+    },
+    'appkey': {
+        'type': 'string',
+        'minlength': 1,
+        'maxlength': 100,
+        'required': True,
+    },    
+}
+
+
+project_member_keys = {
+    'item_title': 'project_member_key',   
+    # Additional lookup with username
+    # We choose to override global cache-control directives for this resource.
+    'cache_control': 'max-age=10,must-revalidate',
+    'cache_expires': 10,
+    # most global settings can be overridden at resource level
+    'resource_methods': ['GET', 'POST'],
+    'schema': schema_project_member_key,
+    #'authentication': hmacauth     
+    
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+
+{% include '_head.html' %}
+
+
+<body>
+
+    {% include '_header.html' %}
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}    
+    
+    <div class="row" style="margin-top:50px;margin-bottom:20px;">
+        <div class="span2">
+        </div>
+        <div class="span6">
+            <img src="{{ url_for('user.static', filename='img/email_24.png') }}"/>
+            <span style="font-size:18px;">
+                <a href="{{ url_for('.add_project_member', prj_id=prj.prj_id)}}">Add New Member</a>
+            </span>
+        </div>
+        <div class="span4">
+            <span style="">
+                <a href="{{ url_for('.index')}}">Go Back</a>
+            </span>
+            
+        </div>
+
+    </div>
+
+
+    <!-- project list table -->
+    <div class="row">
+        <div class="span2">
+        </div>
+        <div class="span10">        
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th style="width:200px;">Member Name</th>
+                        <th style="width:350px;">Member Email</th>
+                        <th style="width:300px;"></th>
+                    </tr>
+                </thead>
+                <tbody>             
+                    {%  for member in prj.member_list %}
+                    <tr>
+                        <td>{{ member.name }}</td>
+                        <td>{{ member.email }}</td>
+                        <td>
+                            <span style="margin-right:15px;">
+                                <a href="{{ url_for('.email_member_newappkey', prj_id=prj.prj_id, member_email=member.email) }}" class="btn btn-info">Email New App Key</a>
+                            </span>
+                            <a href="{{ url_for('.delete_project_member', prj_id=prj.prj_id, member_email=member.email) }}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    
+</body>
+
+</html>

@@ -23,10 +23,10 @@ MONGO_DBNAME = 'api4k'
 DOMAIN = domain
 
 
-# Account Package Settings
+# User Package Settings
 is_username_email = True
 using_email_validation = True
-
+APPKEY_LENGTH = 8
 
 # Not in framework, I added to give option to use RECAPTCHA
 RECAPTCHA_ENABLED = False 
@@ -37,7 +37,7 @@ RECAPTCHA_PUBLIC_KEY = '6LeYIbsSAAAAACRPIllxA7wvXjIE411PfdB2gt2J'
 RECAPTCHA_PRIVATE_KEY = '6LeYIbsSAAAAAJezaIq3Ft_hSTo0YtyeFG-JgRtu'
 
 # Flask-Mail configuration
-MAIL_SERVER = 'smtp.gmail.com'
+MAIL_SERVER = '' # example: ''smtp.gmail.com'
 MAIL_PORT = 465
 MAIL_USE_SSL = True
 MAIL_USERNAME = ''

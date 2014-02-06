@@ -53,6 +53,9 @@ class CreateProjectForm(Form):
     desc = TextAreaField('Description', [validators.Length(min=0, max=500)])
 
 
+class AddProjectMemberForm(Form):
+    name = TextField('Member Name', [validators.Length(min=1, max=30)])
+    email = TextField('Member Email')
 
 
     
