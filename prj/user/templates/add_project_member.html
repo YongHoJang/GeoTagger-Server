@@ -7,7 +7,7 @@
 <body>
     {% include '_header.html' %}
     
-    <div class="row">
+    <div class="row" style="margin-top:50px;">
         <div class="span10 offset2">
             
             {% with errors = get_flashed_messages(category_filter=["error"]) %}
@@ -58,7 +58,7 @@
                             <input class="btn btn-primary" type="submit" value="Add">
                         </span>
                         <span>
-                            <a href="{{ url_for('.index')}}">Cancel</a>
+                            <a href="{{ url_for('.view_project', prj_id=prj_id)}}">Cancel</a>
                         </span>
                     </p>
                     

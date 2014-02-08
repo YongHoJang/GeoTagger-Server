@@ -29,10 +29,6 @@ def signup():
         form = RegistrationForm(request.form)
         
     if request.method == 'POST' and form.validate():
-        #user = User(form.username.data, form.email.data,
-        #                   form.password.data)
-        #       db_session.add(user)
-        
         user = User.create(username=form.email.data, email=form.email.data,
             firstname=form.firstname.data, middlename=form.middlename.data, 
             lastname=form.lastname.data, password=form.password.data)
@@ -61,7 +57,7 @@ def login():
             if user.authenticate(password):
                 login_user(user)
                 flash("Logged in successfully.")
-                return redirect(request.args.get("next") or url_for(".index"))
+                return redirect(request.args.get("next") or url_for(".list_projects"))
             else:
                 error = "Your username or password is not valid"
         
@@ -73,40 +69,22 @@ def login():
 def logout():
     logout_user()
     return render_template('logout.html')  
+
+
+@user_views.route('/userprofile')
+@login_required
+def view_userprofile():
+    return render_template('userprofile.html')  
     
 
-@user_views.route('/')
+@user_views.route('/projects')
 @login_required
-def index():
+def list_projects():
     firstname = current_user.firstname
     lastname = current_user.lastname
     # user's project list
     proj_list = Project.get_projects_for_username(current_user.username)
-    return render_template("index.html", prj_list=proj_list)
-
-
-@user_views.route('/emailappkey')
-@login_required
-def email_appkey():
-    # Get user info
-    # generate new key and send it in email
-    new_appkey = current_user.generate_appkey()
-    current_user.save()
-    # Email new appkey
-    if settings.MAIL_SERVER:
-        mail = Mail(current_app._get_current_object())
-        message = Message("Your new appkey for 4k mobile app",
-            sender='fourkayproject@gmail.com',
-            recipients=[current_user.email])
-        message.body = ( 'Project ID: %s \nAppkey: %s' % (prj_id, key) )
-        mail.send(message)
-        flash("New appkey has been send to your email.", category='info')
-    else:
-        flash("Can not email because email server is not availalbe. " +  
-            "Contact administrator", category='error')
-    #
-    flash("New appkey has been send to your email.", category='index_page')
-    return redirect(url_for('.index'))
+    return render_template("project_list.html", prj_list=proj_list)
 
 
 @user_views.route('/verifyemailappkey')
@@ -127,7 +105,7 @@ def change_password():
             current_user.update_password(form.new_password.data)
             current_user.save()
             flash("Your password has been updated.", category='index_page')
-            return redirect(url_for('.index'))
+            return redirect(url_for('.list_projects'))
         else:
             flash("Your password does not match.", category='error')
             return render_template('change_password.html', form=form)    
@@ -140,11 +118,20 @@ def create_project():
     form = CreateProjectForm(request.form)
     
     if request.method == 'POST' and form.validate():
-        project = Project(prj_name=form.name.data, prj_desc=form.desc.data, 
+        proj = Project(prj_name=form.name.data, prj_desc=form.desc.data, 
             owner=current_user.get_id())
-        project.save()
+        # Add a user as an owner of a project
+        owner_name = current_user.firstname + ' ' + current_user.lastname
+        proj.add_member(name=owner_name, email=current_user.get_id(), 
+            role=Project.ROLE_OWNER)
+        proj.save()
         flash("New project has been created.", category='index_page')
-        return redirect(url_for('.index'))
+        # Generate a project owner's appkey & save it to ProjectMemberKey coll.
+        key = utils.generate_appkey(APPKEY_LENGTH)
+        prjmemkey = ProjectMemberKey(prj_id=proj.prj_id, appkey=key, 
+            member_email=proj.owner)
+        prjmemkey.save()
+        return redirect(url_for('.list_projects'))
         
     return render_template('create_project.html', form=form)
 
@@ -154,7 +141,8 @@ def create_project():
 def view_project(prj_id):
     prj = Project.get_project_for_projectid(prj_id)
     if prj is not None and (prj.owner == current_user.username):
-        return render_template('project_view.html', prj=prj)
+        memkeys = ProjectMemberKey.get_memberkeys_for_project(prj_id)
+        return render_template('project_details.html', prj=prj, memkeys=memkeys)
     
     return render_template('404.html')
     
@@ -165,9 +153,15 @@ def add_project_member(prj_id):
     form = AddProjectMemberForm(request.form)
     if request.method == 'POST' and form.validate():
         try:
-        # Add new member to project
+            # Add new member to project
             proj = Project.get_project_for_projectid(prj_id)
-            proj.add_member(name=form.name.data, email=form.email.data)
+            proj.add_member(name=form.name.data, email=form.email.data, 
+                role=Project.ROLE_MEMBER)
+            # Create an appkey for the new member
+            key = utils.generate_appkey(APPKEY_LENGTH)
+            prjmemkey = ProjectMemberKey(prj_id=proj.prj_id, appkey=key, 
+                member_email=form.email.data)
+            prjmemkey.save()
             flash("New member has been added.")
             return redirect(url_for('.view_project', prj_id=prj_id))   
         except NotUniqueException:
@@ -193,26 +187,34 @@ def delete_project_member(prj_id, member_email):
 @user_views.route('/projects/<prj_id>/members/<member_email>/newappkey', 
     methods=['GET'])
 @login_required
-def email_member_newappkey(prj_id, member_email):
+def generate_newappkey(prj_id, member_email):
     key = utils.generate_appkey(APPKEY_LENGTH)
     prjmemkey = ProjectMemberKey(prj_id=prj_id, member_email=member_email,
         appkey=key)
     prjmemkey.save()
-    # email new
+    return redirect(url_for('.view_project', prj_id=prj_id))  
+
+
+@user_views.route('/projects/<prj_id>/members/<member_email>/emailappkey', 
+    methods=['GET'])
+@login_required     
+def email_appkey(prj_id, member_email):
+    memkey = ProjectMemberKey.find_one(prj_id=prj_id, member_email=member_email)
     if settings.MAIL_SERVER:
         mail = Mail(current_app._get_current_object())
         message = Message("Your new appkey for 4k mobile app",
             sender='fourkayproject@gmail.com',
             recipients=[member_email])
-        message.body = ( 'Project ID: %s \nAppkey: %s' % (prj_id, key) )
+        message.body = ( 'Project ID: %s \nAppkey: %s' % 
+            (prj_id, memkey.appkey) )
         mail.send(message)
         flash("New appkey has been send to your email.", category='info')
     else:
         flash("Can not email because email server is not availalbe. " +  
             "Contact administrator", category='error')
+            
     return redirect(url_for('.view_project', prj_id=prj_id))  
-
-     
+    
     
     
 

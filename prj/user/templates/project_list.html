@@ -4,7 +4,7 @@
 {% include '_head.html' %}
 
 
-<body>
+<body style="margin: 0 auto;width:1000px;">
 
     {% include '_header.html' %}
 
@@ -19,38 +19,16 @@
     {% endwith %}
 
     <div class="row" style="margin-top:50px;margin-bottom:20px;">
-        <div class="span2">
-        </div>
-        <div class="span10">
-            <img src="{{ url_for('user.static', filename='img/email_24.png') }}"/>
-            <span style="font-size:18px;">
-                <a href="{{ url_for('.verify_email_appkey')}}">Email New Appkey</a>
-            </span>
+        <div class="span12">
+            <img src="{{ url_for('user.static', filename='img/new_case_32.png') }}"/>
+            <span style="margin-left:5px;font-size:16px;vertical-align:middle"><a href="{{ url_for('.create_project') }}">Create New Project</a></span>
         </div>
     </div>
-    <div class="row" style="margin-bottom:20px;">
-        <div class="span2">
-        </div>
-        <div class="span10">
-            <img src="{{ url_for('user.static', filename='img/lock_24.png') }}"/>
-            <span style="font-size:18px;"><a href="{{ url_for('.change_password')}}">Change Password</a></span>
-        </div>
-    </div>
-    
-    <div class="row" style="margin-bottom:20px;">
-        <div class="span2">
-        </div>
-        <div class="span10">
-            <img src="{{ url_for('user.static', filename='img/map_24.png') }}"/>
-            <span style="font-size:18px;"><a href="{{ url_for('.create_project') }}">Create New Project</a></span>
-        </div>
-    </div>    
 
     <!-- project list table -->
     <div class="row">
-        <div class="span2">
-        </div>
-        <div class="span10">        
+
+        <div class="span12">        
             <table class='table'>
                 <thead>
                     <tr>

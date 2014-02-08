@@ -149,6 +149,11 @@ class Project:
     This model should work with Eve framework schema definition. However, 
     this resource type is managed OUTSIDE of eve framework.
     '''
+    # Class Static Variables
+    ROLE_OWNER = 'owner'
+    ROLE_MEMBER = 'member'    
+    
+    
     def __init__(self, prj_name, prj_desc, owner, prj_id=None, 
             member_list=[]):
         self.name = prj_name
@@ -187,7 +192,7 @@ class Project:
         return prj_id
         
         
-    def add_member(self, name, email):
+    def add_member(self, name, email, role):
         '''
         Add a member of a project.
         Check if new member's email exists in the member list, and if not, add
@@ -203,6 +208,7 @@ class Project:
             new_member = {}
             new_member['name'] = name
             new_member['email'] = email
+            new_member['role'] = role # values in ['owner','member']
             self.member_list.append(new_member)
             # save
             self.save()
@@ -252,10 +258,15 @@ class Project:
 
 
 class ProjectMemberKey:
+    '''
+    Manages a project member's appkey.
+    '''
+    
     def __init__(self, prj_id, member_email, appkey):
         self.prj_id = prj_id
         self.member_email = member_email
         self.appkey = appkey
+        
         
     def save(self):
         mongo = current_app._get_current_object().data.driver
@@ -265,6 +276,28 @@ class ProjectMemberKey:
         mongo.db.project_member_key.update(
             {'prj_id':self.prj_id,'member_email':self.member_email}, 
             obj, upsert=True)
+            
+            
+    @staticmethod
+    def find_one(prj_id, member_email):
+        mongo = current_app._get_current_object().data.driver
+        row = mongo.db.project_member_key.find_one({'prj_id': prj_id, 
+            'member_email':member_email})
+        return row
+                    
+    
+    @staticmethod        
+    def get_memberkeys_for_project(prj_id):
+        mongo = current_app._get_current_object().data.driver
+        rows = mongo.db.project_member_key.find({'prj_id': prj_id})
+        memkeys = {}
+        for row in rows:
+            print row
+            memkeys[row['member_email']] = row['appkey']
+        
+        return memkeys
+        
+        
         
     
 
