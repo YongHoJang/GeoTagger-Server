@@ -128,6 +128,9 @@
             {{ render_field(form.email) }}
             {{ render_field(form.password) }}
             <p><input type="submit" value="Login">
+                <span style="margin-left:70px;font-size:15px;">No login yet? 
+                    <a href="{{ url_for('.signup') }}">Sign Up!</a>
+                </span>
             </fieldset>
         </form>
     </div>

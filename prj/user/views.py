@@ -44,6 +44,7 @@ def signup():
     
     
 @user_views.route('/login', methods=['GET','POST'])
+@user_views.route('/', alias=True)
 def login():
     error = None
     form = LoginForm(request.form)
