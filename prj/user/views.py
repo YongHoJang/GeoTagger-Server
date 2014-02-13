@@ -121,11 +121,11 @@ def create_project():
     if request.method == 'POST' and form.validate():
         proj = Project(prj_name=form.name.data, prj_desc=form.desc.data, 
             owner=current_user.get_id())
+        proj.save()
         # Add a user as an owner of a project
         owner_name = current_user.firstname + ' ' + current_user.lastname
         proj.add_member(name=owner_name, email=current_user.get_id(), 
             role=Project.ROLE_OWNER)
-        proj.save()
         flash("New project has been created.", category='index_page')
         # Generate a project owner's appkey & save it to ProjectMemberKey coll.
         key = utils.generate_appkey(APPKEY_LENGTH)

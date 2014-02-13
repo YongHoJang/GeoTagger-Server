@@ -34,7 +34,8 @@ def load_user(username):
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0', port=5000)
+    # set processes param for mulpiple concurrent users.
+    app.run(host='0.0.0.0', port=5000, processes=3, threaded=True)
 
 
 
