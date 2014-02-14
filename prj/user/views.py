@@ -13,7 +13,9 @@ from flask.ext.login import logout_user, current_user
 from flask.ext.mail import Message, Mail
 from settings import RECAPTCHA_ENABLED, APPKEY_LENGTH
 from bson.objectid import ObjectId
+from threading import Lock
 
+lock = Lock()
 
 user_views = Blueprint('user', __name__, template_folder='templates',
     static_folder='static')
@@ -119,20 +121,21 @@ def create_project():
     form = CreateProjectForm(request.form)
     
     if request.method == 'POST' and form.validate():
-        proj = Project(prj_name=form.name.data, prj_desc=form.desc.data, 
-            owner=current_user.get_id())
-        proj.save()
-        # Add a user as an owner of a project
-        owner_name = current_user.firstname + ' ' + current_user.lastname
-        proj.add_member(name=owner_name, email=current_user.get_id(), 
-            role=Project.ROLE_OWNER)
-        flash("New project has been created.", category='index_page')
-        # Generate a project owner's appkey & save it to ProjectMemberKey coll.
-        key = utils.generate_appkey(APPKEY_LENGTH)
-        prjmemkey = ProjectMemberKey(prj_id=proj.prj_id, appkey=key, 
-            member_email=proj.owner)
-        prjmemkey.save()
-        return redirect(url_for('.list_projects'))
+        with lock:
+            proj = Project(prj_name=form.name.data, prj_desc=form.desc.data, 
+                owner=current_user.get_id())
+            proj.save()
+            # Add a user as an owner of a project
+            owner_name = current_user.firstname + ' ' + current_user.lastname
+            proj.add_member(name=owner_name, email=current_user.get_id(), 
+                role=Project.ROLE_OWNER)
+            flash("New project has been created.", category='index_page')
+            # Generate a project owner's appkey & save it to ProjectMemberKey coll.
+            key = utils.generate_appkey(APPKEY_LENGTH)
+            prjmemkey = ProjectMemberKey(prj_id=proj.prj_id, appkey=key, 
+                member_email=proj.owner)
+            prjmemkey.save()
+            return redirect(url_for('.list_projects'))
         
     return render_template('create_project.html', form=form)
 
