@@ -13,7 +13,7 @@ from flask.ext.login import logout_user, current_user
 from flask.ext.mail import Message, Mail
 from settings import RECAPTCHA_ENABLED, APPKEY_LENGTH
 from bson.objectid import ObjectId
-from threading import Lock
+from multiprocessing import Lock
 
 lock = Lock()
 
