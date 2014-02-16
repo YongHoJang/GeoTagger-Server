@@ -171,6 +171,7 @@ class Project:
         obj = json.loads(obj_str)
         #print 'new project json is: %s' % obj_str
         mongo.db.projects.update({'prj_id':self.prj_id}, obj, upsert=True)
+        return self.prj_id
         
             
     def create_prj_id(self):
