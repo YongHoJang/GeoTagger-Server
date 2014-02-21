@@ -1,5 +1,4 @@
 import settings
-import utils
 from flask import Blueprint, render_template, abort, request, redirect, flash
 from flask import url_for
 from jinja2 import TemplateNotFound
@@ -14,6 +13,8 @@ from flask.ext.mail import Message, Mail
 from settings import RECAPTCHA_ENABLED, APPKEY_LENGTH
 from bson.objectid import ObjectId
 from multiprocessing import Lock
+import utils
+from utils import csrf_protect
 
 lock = Lock()
 
@@ -117,11 +118,11 @@ def change_password():
 
 @user_views.route('/projects/add', methods=['GET','POST'])
 @login_required
+@csrf_protect
 def create_project():
+    #with lock:
     form = CreateProjectForm(request.form)
-    
     if request.method == 'POST' and form.validate():
-        #with lock:
         new_proj = Project(prj_name=form.name.data, prj_desc=form.desc.data, 
             owner=current_user.get_id())
         prj_id = new_proj.save()
@@ -132,12 +133,14 @@ def create_project():
             role=Project.ROLE_OWNER)
         flash("New project has been created.", category='index_page')
         # Generate a project owner's appkey & save it to ProjectMemberKey coll.
-        key = utils.generate_appkey(APPKEY_LENGTH)
+        #keygen = KeyGenerator()
+        #key = keygen.getkey(APPKEY_LENGTH)
+        key = utils.generate_key()
         prjmemkey = ProjectMemberKey(prj_id=proj.prj_id, appkey=key, 
             member_email=proj.owner)
         prjmemkey.save()
         return redirect(url_for('.list_projects'))
-        
+
     return render_template('create_project.html', form=form)
 
 
@@ -163,7 +166,8 @@ def add_project_member(prj_id):
             proj.add_member(name=form.name.data, email=form.email.data, 
                 role=Project.ROLE_MEMBER)
             # Create an appkey for the new member
-            key = utils.generate_appkey(APPKEY_LENGTH)
+            
+            key = utils.generate_key(APPKEY_LENGTH)
             prjmemkey = ProjectMemberKey(prj_id=proj.prj_id, appkey=key, 
                 member_email=form.email.data)
             prjmemkey.save()
@@ -193,7 +197,7 @@ def delete_project_member(prj_id, member_email):
     methods=['GET'])
 @login_required
 def generate_newappkey(prj_id, member_email):
-    key = utils.generate_appkey(APPKEY_LENGTH)
+    key = utils.generate_key(APPKEY_LENGTH)
     prjmemkey = ProjectMemberKey(prj_id=prj_id, member_email=member_email,
         appkey=key)
     prjmemkey.save()
