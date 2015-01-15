@@ -17,7 +17,7 @@ MONGO_HOST = 'localhost'
 MONGO_PORT = 27017
 #MONGO_USERNAME = 'admin'
 #MONGO_USERNAME = '@dmin!'
-MONGO_DBNAME = 'api4k'
+MONGO_DBNAME = 'gtsdb'
 
 # Data Models
 DOMAIN = domain
@@ -44,7 +44,9 @@ MAIL_USERNAME = ''
 MAIL_PASSWORD = ''
 DEFAULT_MAIL_SENDER = MAIL_USERNAME
 
-
+# App Secret Key
+# NEED TO CHANGE FOR EACH APP
+SECRET_KEY = 'B1Xp83k/4qY1S~GIH!jnM]KES/,?CT'
 
 
 

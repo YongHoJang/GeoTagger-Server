@@ -14,8 +14,6 @@ SETTINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'settin
 app = Eve(settings=SETTINGS_PATH)
 # Blueprint Configuration
 app.register_blueprint(user_views, url_prefix='/user')
-# TODO: Need to configure it for individual application
-app.secret_key = 'B1Xp83k/4qY1S~GIH!jnM]KES/,?CT'
 
 
 # Flask-Login Configuration
