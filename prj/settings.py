@@ -23,6 +23,11 @@ MONGO_DBNAME = 'gtsdb'
 DOMAIN = domain
 
 
+# API URL CONFIG
+URL_PREFIX = 'api'
+API_VERSION = '0.1'
+
+
 # User Package Settings
 is_username_email = True
 using_email_validation = True
@@ -47,6 +52,9 @@ DEFAULT_MAIL_SENDER = MAIL_USERNAME
 # App Secret Key
 # NEED TO CHANGE FOR EACH APP
 SECRET_KEY = 'B1Xp83k/4qY1S~GIH!jnM]KES/,?CT'
+
+# Factual API KEY
+FACTUAL_APIKEY = 'pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR'
 
 
 

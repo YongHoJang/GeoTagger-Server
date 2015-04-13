@@ -1,11 +1,13 @@
 import os
 from eve import Eve
-from user.views import user_views
 from flask.ext.login import LoginManager
 from user.models import User
 from user.views import login
 # for using gunicorn
 from werkzeug.contrib.fixers import ProxyFix
+# Blueprint import
+from proxy.views_factual import proxy_views
+from user.views import user_views
 
 
 # Setup app!
@@ -14,6 +16,7 @@ SETTINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'settin
 app = Eve(settings=SETTINGS_PATH)
 # Blueprint Configuration
 app.register_blueprint(user_views, url_prefix='/user')
+app.register_blueprint(proxy_views, url_prefix='/proxy')
 
 
 # Flask-Login Configuration
@@ -34,7 +37,7 @@ def load_user(username):
 if __name__ == '__main__':
     app.debug = True
     # set processes param for mulpiple concurrent users.
-    app.run(host='0.0.0.0', port=5000, processes=4)
-
+    #app.run(host='0.0.0.0', port=5000, processes=4)
+    app.run()
 
 

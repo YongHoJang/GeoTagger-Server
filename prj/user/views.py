@@ -64,7 +64,7 @@ def login():
                 return redirect(request.args.get("next") or url_for(".list_projects"))
             else:
                 error = "Your username or password is not valid"
-        
+                
     return render_template("login.html", form=form, error=error)
 
 
