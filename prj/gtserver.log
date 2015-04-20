@@ -1,0 +1,1 @@
+query string to factual: https://api.factual.com/t/world-geographies?filters={"$and":[{"country":{"$eq":"US"}},{"name":{"$search":"downtown redlands"}}]}&KEY=pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR

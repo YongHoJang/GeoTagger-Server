@@ -1,6 +1,6 @@
 import json
 
-
+     
 class FactualDataCandidate:
     def __init__(self, json_str):
         place = ''
