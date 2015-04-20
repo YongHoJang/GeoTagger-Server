@@ -1,0 +1,1351 @@
+{
+    "response": {
+        "data": [
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864d16a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "San Bernardino",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649c86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "California",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Downtown Redlands, San Bernardino, US",
+                "country": "US",
+                "factual_id": "09743c94-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 34.057388,
+                "longitude": -117.180847,
+                "name": "Downtown Redlands",
+                "parent": {
+                    "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Redlands",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Downtown Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Redlands Grove, Mesa, US",
+                "country": "US",
+                "factual_id": "0944407a-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.066971,
+                "longitude": -108.644318,
+                "name": "Redlands Grove",
+                "neighbors": [
+                    {
+                        "factual_id": "093b3214-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "094441e2-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Renaissance in the Redlands",
+                        "placetype": "neighborhood"
+                    }
+                ],
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Redlands Grove",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "children": [
+                    {
+                        "factual_id": "094f6964-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Entrada Townhouses",
+                        "placetype": "neighborhood"
+                    }
+                ],
+                "contextname": "Redlands, Mesa, US",
+                "country": "US",
+                "factual_id": "093b3214-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.064381,
+                "longitude": -108.595413,
+                "name": "Redlands",
+                "neighbors": [
+                    {
+                        "factual_id": "094408b2-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Fawn Hill",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943fda4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Deer Park",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "093e7c12-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Historic Downtown",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09444480-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Rocky Heights",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09443350-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Orchard Acres",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943f7fa-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Corral De Terra",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0944365c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Panorama",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09441aa0-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Independence Valley",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09441a6e-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Independence Ranch",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "08b95eba-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mack",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "09444ad4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "South Broadway",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09443ab2-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Pine Terrace",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943ea80-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Buffalo Court",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943f9da-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Country Meadows",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09442aae-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Monument Valley",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943e8b4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Broadway",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "094446b0-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Saddlehorn",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "08aa4966-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Utaline",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "09442a72-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Monument Shadows",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0944407a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands Grove",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "094407a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Fairway",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943ed78-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Canyon View",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "08b7f1ba-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Gateway",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "0944411a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands Village",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "087fe874-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Glade Park",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "0943ed00-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Canyon Creek",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "094441e2-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Renaissance in the Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0939ddce-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Appleton",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "094447e6-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Seasons at Tiara Rado",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09442cac-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mountain Shadows",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0944241e-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Masters at Tiara Rado",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0944345e-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Orchard Mesa Heights",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943ed3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Canyon Rim",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09440a7e-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Foster Townhome",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943fb06-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Creekside",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943ffac-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Dorssey Townhome",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943e814-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Boulders",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0944051a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Ellie Heights",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "093b1234-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Orchard Mesa",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943f034-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Chaparral",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0944484a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Shadow Mountain",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09444b74-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "South Rim",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "08c3aa28-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Fruita",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "09444016-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Red Valley",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "094440e8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands Valley",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0944414c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Reed Mesa",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943fcdc-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Cunningham Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943fe12-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Del Monte Park",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09443ee0-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Rainbow Ranch",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09444d0e-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Stone Canyon Ranch",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "093e7d16-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Northwest Area",
+                        "placetype": "neighborhood"
+                    }
+                ],
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Redlands Club, Mesa, US",
+                "country": "US",
+                "factual_id": "09444048-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.06414,
+                "longitude": -108.598801,
+                "name": "Redlands Club",
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Redlands Club",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Cunningham Redlands, Mesa, US",
+                "country": "US",
+                "factual_id": "0943fcdc-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.09235,
+                "longitude": -108.678093,
+                "name": "Cunningham Redlands",
+                "neighbors": [
+                    {
+                        "factual_id": "093b3214-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0944467e-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Saddleback",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0943f034-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Chaparral",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09441a6e-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Independence Ranch",
+                        "placetype": "neighborhood"
+                    }
+                ],
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Cunningham Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Mccune Redlands, Mesa, US",
+                "country": "US",
+                "factual_id": "09442482-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.077412,
+                "longitude": -108.619469,
+                "name": "Mccune Redlands",
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Mccune Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864d16a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "San Bernardino",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649c86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "California",
+                        "placetype": "region"
+                    }
+                ],
+                "children": [
+                    {
+                        "factual_id": "091c39d6-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "92373",
+                        "placetype": "postcode"
+                    },
+                    {
+                        "factual_id": "091c3a12-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "92374",
+                        "placetype": "postcode"
+                    },
+                    {
+                        "factual_id": "092085e0-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "92375",
+                        "placetype": "postcode"
+                    },
+                    {
+                        "factual_id": "0932f946-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Nevada",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09381674-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Warner",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09633368-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands Heights",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09743c62-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Central Business District",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09743c94-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Downtown Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09743cc6-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "East Highland",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09743d02-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "East Valley Corridor",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09743d34-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "North Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09743d66-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Northwest Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09743d98-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "San Timoteo",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09743dca-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "South Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09743e06-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "West Redlands",
+                        "placetype": "neighborhood"
+                    }
+                ],
+                "contextname": "Redlands, San Bernardino, US",
+                "country": "US",
+                "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 34.055279,
+                "longitude": -117.182579,
+                "name": "Redlands",
+                "neighbors": [
+                    {
+                        "factual_id": "08a389a0-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Smiley Heights",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "088ecb64-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Marigold",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "087a91bc-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "El Casco",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "08c4fd38-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Highland",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "086f4a14-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Bryn Mawr",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "08c16178-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colton",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "08b9a0d2-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mentone",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "08c848d0-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Moreno Valley",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "08bf3560-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Beaumont",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "08cefb44-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Yucaipa",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "08cb9ada-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "San Bernardino",
+                        "placetype": "locality"
+                    },
+                    {
+                        "factual_id": "08c05fa8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Calimesa",
+                        "placetype": "locality"
+                    }
+                ],
+                "parent": {
+                    "factual_id": "0864d16a-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "San Bernardino",
+                    "placetype": "county"
+                },
+                "placetype": "locality",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Redlands Village, Mesa, US",
+                "country": "US",
+                "factual_id": "0944411a-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.0881,
+                "longitude": -108.638847,
+                "name": "Redlands Village",
+                "neighbors": [
+                    {
+                        "factual_id": "094446b0-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Saddlehorn",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "093b3214-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "09443ab2-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Pine Terrace",
+                        "placetype": "neighborhood"
+                    }
+                ],
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Redlands Village",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "South Redlands, Mesa, US",
+                "country": "US",
+                "factual_id": "09444b38-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.062031,
+                "longitude": -108.581268,
+                "name": "South Redlands",
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "South Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Redlands Valley, Mesa, US",
+                "country": "US",
+                "factual_id": "094440e8-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.080269,
+                "longitude": -108.643784,
+                "name": "Redlands Valley",
+                "neighbors": [
+                    {
+                        "factual_id": "093b3214-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "0944414c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Reed Mesa",
+                        "placetype": "neighborhood"
+                    }
+                ],
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Redlands Valley",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864d16a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "San Bernardino",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649c86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "California",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "South Redlands, San Bernardino, US",
+                "country": "US",
+                "factual_id": "09743dca-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 34.042999,
+                "longitude": -117.185928,
+                "name": "South Redlands",
+                "parent": {
+                    "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Redlands",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "South Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864d16a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "San Bernardino",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649c86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "California",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Redlands Heights, San Bernardino, US",
+                "country": "US",
+                "factual_id": "09633368-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 34.033852,
+                "longitude": -117.157982,
+                "name": "Redlands Heights",
+                "parent": {
+                    "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Redlands",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Redlands Heights",
+                        "preferred": true
+                    },
+                    {
+                        "lang": "en",
+                        "name": "Redlands Hts",
+                        "preferred": false
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864d16a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "San Bernardino",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649c86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "California",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "West Redlands, San Bernardino, US",
+                "country": "US",
+                "factual_id": "09743e06-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 34.064331,
+                "longitude": -117.220993,
+                "name": "West Redlands",
+                "parent": {
+                    "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Redlands",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "West Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Renaissance in the Redlands, Mesa, US",
+                "country": "US",
+                "factual_id": "094441e2-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.06868,
+                "longitude": -108.642258,
+                "name": "Renaissance in the Redlands",
+                "neighbors": [
+                    {
+                        "factual_id": "0944407a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands Grove",
+                        "placetype": "neighborhood"
+                    },
+                    {
+                        "factual_id": "093b3214-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "neighborhood"
+                    }
+                ],
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Renaissance in the Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864d16a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "San Bernardino",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649c86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "California",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Northwest Redlands, San Bernardino, US",
+                "country": "US",
+                "factual_id": "09743d66-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 34.077709,
+                "longitude": -117.220871,
+                "name": "Northwest Redlands",
+                "parent": {
+                    "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Redlands",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Northwest Redlands",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Redlands Marketplace, Mesa, US",
+                "country": "US",
+                "factual_id": "096f7592-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.066521,
+                "longitude": -108.588013,
+                "name": "Redlands Marketplace",
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Redlands Marketplace",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864dd86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Mesa",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649cb8-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Colorado",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Grand Junction",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "Redlands Mesa, Mesa, US",
+                "country": "US",
+                "factual_id": "094440ac-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 39.05584,
+                "longitude": -108.61953,
+                "name": "Redlands Mesa",
+                "parent": {
+                    "factual_id": "08c42c3c-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Grand Junction",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "Redlands Mesa",
+                        "preferred": true
+                    }
+                ]
+            },
+            {
+                "ancestors": [
+                    {
+                        "factual_id": "0864d16a-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "San Bernardino",
+                        "placetype": "county"
+                    },
+                    {
+                        "factual_id": "08d549a4-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "United States",
+                        "placetype": "country"
+                    },
+                    {
+                        "factual_id": "146c9718-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Earth",
+                        "placetype": "supername"
+                    },
+                    {
+                        "factual_id": "08649c86-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "California",
+                        "placetype": "region"
+                    },
+                    {
+                        "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                        "name": "Redlands",
+                        "placetype": "locality"
+                    }
+                ],
+                "contextname": "North Redlands, San Bernardino, US",
+                "country": "US",
+                "factual_id": "09743d34-8f76-11e1-848f-cfd5bf3ef515",
+                "latitude": 34.073021,
+                "longitude": -117.184151,
+                "name": "North Redlands",
+                "parent": {
+                    "factual_id": "08cacaba-8f76-11e1-848f-cfd5bf3ef515",
+                    "name": "Redlands",
+                    "placetype": "locality"
+                },
+                "placetype": "neighborhood",
+                "variants": [
+                    {
+                        "lang": "en",
+                        "name": "North Redlands",
+                        "preferred": true
+                    }
+                ]
+            }
+        ],
+        "included_rows": 18
+    },
+    "status": "ok",
+    "version": 3
+}

@@ -28,6 +28,8 @@ def query_factual(place, country):
     #print 'query string:' + qurl
     app.logger.info('query string to factual: %s' % qurl)
     res = requests.get(qurl)
+    # TODO: repackage the response to contain only necessary info. 
+    
     # TODO: handle errors in response
     response = Response(response=res.text, status = res.status_code, 
         mimetype="application/json")
