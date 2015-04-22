@@ -31,6 +31,7 @@ def query_factual(place, country):
     # TODO: repackage the response to contain only necessary info. 
     
     # TODO: handle errors in response
+    #print "Factual API response inside of query_factual:", res.text
     response = Response(response=res.text, status = res.status_code, 
         mimetype="application/json")
     return  response
