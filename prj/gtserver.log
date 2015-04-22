@@ -1,1 +1,78 @@
 query string to factual: https://api.factual.com/t/world-geographies?filters={"$and":[{"country":{"$eq":"US"}},{"name":{"$search":"downtown redlands"}}]}&KEY=pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR
+Exception on /proxy/q [POST]
+Traceback (most recent call last):
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/GeoTagger-Server/prj/proxy/views_factual.py", line 47, in query
+    place = request.args.post('place')
+AttributeError: 'ImmutableMultiDict' object has no attribute 'post'
+Exception on /proxy/q [POST]
+Traceback (most recent call last):
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/GeoTagger-Server/prj/proxy/views_factual.py", line 47, in query
+    print 'inside of query() --> POST'
+AttributeError: 'ImmutableMultiDict' object has no attribute 'post'
+Exception on /proxy/q [POST]
+Traceback (most recent call last):
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/GeoTagger-Server/prj/proxy/views_factual.py", line 47, in query
+    print 'inside of query() --> POST'
+AttributeError: 'ImmutableMultiDict' object has no attribute 'post'
+Exception on /proxy/q [POST]
+Traceback (most recent call last):
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/GeoTagger-Server/prj/proxy/views_factual.py", line 47, in query
+    print 'inside of query() --> POST'
+AttributeError: 'ImmutableMultiDict' object has no attribute 'post'
+Exception on /proxy/q [POST]
+Traceback (most recent call last):
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/mkang/GIT_COOLKANG/gtserver/lib/python2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/mkang/GIT_COOLKANG/gtserver/GeoTagger-Server/prj/proxy/views_factual.py", line 47, in query
+    print 'inside of query() --> POST'
+AttributeError: 'ImmutableMultiDict' object has no attribute 'post'
+query string to factual: https://api.factual.com/t/world-geographies?filters={"$and":[{"country":{"$eq":"US"}},{"name":{"$search":"redlands"}}]}&KEY=pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR
+query string to factual: https://api.factual.com/t/world-geographies?filters={"$and":[{"country":{"$eq":"US"}},{"name":{"$search":"redlands"}}]}&KEY=pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR
