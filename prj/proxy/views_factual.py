@@ -36,26 +36,28 @@ def query_factual(place, country):
     return  response
 
     
-@proxy_views.route('/q', methods=['GET'])
+@proxy_views.route('/q', methods=['GET', 'POST'])
 def query():
     error = None
     # Get a request data
     if request.method == 'GET':
         place = request.args.get('place')
-        #province = request.args.get('prov') # province or county
         country = request.args.get('country')
-        # TODO: check if country & either (city, province) are filled
-        if place is None or country is None:
-            return ('You should type country name & place to search', 400,'')
-        else:
-            cntrycode = find_countrycode(country)
-            if cntrycode is None:
-                return ('You should type a valid country name ', 400,'')
-            response = query_factual(place, cntrycode)
-        return response
-        #return render_template("proxy_success.html", error=error)
+    elif request.method == 'POST':
+        place = request.args.post('place')
+        country = request.args.post('country')
     else:
         pass
+            
+    # TODO: check if country & either (city, province) are filled
+    if place is None or country is None:
+        return ('You should type country name & place to search', 400,'')
+    else:
+        cntrycode = find_countrycode(country)
+        if cntrycode is None:
+            return ('You should type a valid country name ', 400,'')
+        response = query_factual(place, cntrycode)
+        return response
             
 
         
