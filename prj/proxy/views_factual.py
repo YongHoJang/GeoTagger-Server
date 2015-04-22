@@ -44,8 +44,8 @@ def query():
         place = request.args.get('place')
         country = request.args.get('country')
     elif request.method == 'POST':
-        place = request.form['place']
-        country = request.form['country']
+        place = request.form.get('place')
+        country = request.form.get('country')
     else:
         pass
             
