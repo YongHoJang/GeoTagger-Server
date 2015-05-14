@@ -29,16 +29,36 @@ def query_factual(place, country):
     app.logger.info('query string to factual: %s' % qurl)
     res = requests.get(qurl)
     # TODO: repackage the response to contain only necessary info. 
-    
+    res_json = json.loads(res.text)
+    res_status = res_json['status']
+    if res_status == 'ok':
+        resultdict = {}
+        resultdict['num_data'] = res_json['response']['included_rows']
+        resultdict['data'] = []
+        for data in res_json['response']['data']:
+            entry = {}
+            entry['contextname'] = data['contextname']
+            entry['fact_id'] = data['factual_id'];
+            entry['latitude'] = data['latitude'];
+            entry['longitude'] = data['longitude'];
+            resultdict['data'].append(entry)
+        res_text = json.dumps(resultdict)
+    else:
+        # Error happened in factual query. 
+        # TODO: handle it properly
+        res_text = json.dumps('{}')
     # TODO: handle errors in response
     #print "Factual API response inside of query_factual:", res.text
-    response = Response(response=res.text, status = res.status_code, 
+    response = Response(response=res_text, status = res.status_code, 
         mimetype="application/json")
     return  response
 
     
 @proxy_views.route('/q', methods=['GET', 'POST'])
 def query():
+    # TODO: Validate user's query privilege using clients' app key and account
+    # -----
+    
     error = None
     # Get a request data
     if request.method == 'GET':
