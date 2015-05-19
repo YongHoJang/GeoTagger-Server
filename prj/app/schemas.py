@@ -1,5 +1,5 @@
-from user.authentication import HMACAuth, Sha1Auth
-from user.schemas import users, projects, project_member_keys
+from account.authentication import HMACAuth, Sha1Auth
+from account.schemas import users, projects, project_member_keys
         
 # Current API authentication method, make an instance        
 hmacauth = HMACAuth()

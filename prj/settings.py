@@ -1,4 +1,3 @@
-from schemas import domain
 from pymongo import MongoClient
 
 
@@ -18,9 +17,6 @@ MONGO_PORT = 27017
 #MONGO_USERNAME = 'admin'
 #MONGO_USERNAME = '@dmin!'
 MONGO_DBNAME = 'gtsdb'
-
-# Data Models
-DOMAIN = domain
 
 
 # API URL CONFIG

@@ -76,3 +76,5 @@ Traceback (most recent call last):
 AttributeError: 'ImmutableMultiDict' object has no attribute 'post'
 query string to factual: https://api.factual.com/t/world-geographies?filters={"$and":[{"country":{"$eq":"US"}},{"name":{"$search":"redlands"}}]}&KEY=pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR
 query string to factual: https://api.factual.com/t/world-geographies?filters={"$and":[{"country":{"$eq":"US"}},{"name":{"$search":"redlands"}}]}&KEY=pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR
+query string to factual: https://api.factual.com/t/world-geographies?filters={"$and":[{"country":{"$eq":"U.S."}},{"name":{"$search":"kansas city"}}]}&KEY=pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR
+query string to factual: https://api.factual.com/t/world-geographies?filters={"$and":[{"country":{"$eq":"US"}},{"name":{"$search":"kansas city"}}]}&KEY=pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR

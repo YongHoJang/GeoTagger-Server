@@ -18,11 +18,10 @@ from utils import csrf_protect
 
 lock = Lock()
 
-user_views = Blueprint('user', __name__, template_folder='templates',
+account_views = Blueprint('account', __name__, template_folder='templates',
     static_folder='static')
 
-
-@user_views.route('/signup', methods=['GET','POST'])
+@account_views.route('/signup', methods=['GET','POST'])
 def signup():
     error = None
     
@@ -46,8 +45,8 @@ def signup():
     return render_template('signup.html', form=form, error=error)
     
     
-@user_views.route('/login', methods=['GET','POST'])
-@user_views.route('/', alias=True)
+@account_views.route('/login', methods=['GET','POST'])
+@account_views.route('/', alias=True)
 def login():
     error = None
     form = LoginForm(request.form)
@@ -68,20 +67,20 @@ def login():
     return render_template("login.html", form=form, error=error)
 
 
-@user_views.route('/logout')
+@account_views.route('/logout')
 @login_required
 def logout():
     logout_user()
     return render_template('logout.html')  
 
 
-@user_views.route('/userprofile')
+@account_views.route('/userprofile')
 @login_required
 def view_userprofile():
     return render_template('userprofile.html')  
     
 
-@user_views.route('/projects')
+@account_views.route('/projects')
 @login_required
 def list_projects():
     firstname = current_user.firstname
@@ -91,13 +90,13 @@ def list_projects():
     return render_template("project_list.html", prj_list=proj_list)
 
 
-@user_views.route('/verifyemailappkey')
+@account_views.route('/verifyemailappkey')
 @login_required
 def verify_email_appkey():
     return render_template("verify_email_appkey.html")
 
 
-@user_views.route('/changepassword', methods=['GET','POST'])
+@account_views.route('/changepassword', methods=['GET','POST'])
 @login_required
 def change_password():
     '''
@@ -116,7 +115,7 @@ def change_password():
     return render_template('change_password.html', form=form)
 
 
-@user_views.route('/projects/add', methods=['GET','POST'])
+@account_views.route('/projects/add', methods=['GET','POST'])
 @login_required
 @csrf_protect
 def create_project():
@@ -144,7 +143,7 @@ def create_project():
     return render_template('create_project.html', form=form)
 
 
-@user_views.route('/projects/<prj_id>', methods=['GET','POST'])
+@account_views.route('/projects/<prj_id>', methods=['GET','POST'])
 @login_required    
 def view_project(prj_id):
     prj = Project.get_project_for_projectid(prj_id)
@@ -155,7 +154,7 @@ def view_project(prj_id):
     return render_template('404.html')
     
 
-@user_views.route('/projects/<prj_id>/members/add', methods=['GET','POST'])
+@account_views.route('/projects/<prj_id>/members/add', methods=['GET','POST'])
 @login_required    
 def add_project_member(prj_id):
     form = AddProjectMemberForm(request.form)
@@ -184,7 +183,7 @@ def add_project_member(prj_id):
     return render_template('add_project_member.html', form=form, prj_id=prj_id)    
     
 
-@user_views.route('/projects/<prj_id>/members/<member_email>/delete', 
+@account_views.route('/projects/<prj_id>/members/<member_email>/delete', 
     methods=['GET'])
 @login_required    
 def delete_project_member(prj_id, member_email):
@@ -193,7 +192,7 @@ def delete_project_member(prj_id, member_email):
     return redirect(url_for('.view_project', prj_id=prj_id))    
     
     
-@user_views.route('/projects/<prj_id>/members/<member_email>/newappkey', 
+@account_views.route('/projects/<prj_id>/members/<member_email>/newappkey', 
     methods=['GET'])
 @login_required
 def generate_newappkey(prj_id, member_email):
@@ -204,7 +203,7 @@ def generate_newappkey(prj_id, member_email):
     return redirect(url_for('.view_project', prj_id=prj_id))  
 
 
-@user_views.route('/projects/<prj_id>/members/<member_email>/emailappkey', 
+@account_views.route('/projects/<prj_id>/members/<member_email>/emailappkey', 
     methods=['GET'])
 @login_required     
 def email_appkey(prj_id, member_email):

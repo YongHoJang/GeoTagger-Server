@@ -39,7 +39,7 @@
 
     <div class="row" style="margin-top:40px;margin-bottom:20px;">
         <div class="span8">
-            <img src="{{ url_for('user.static', filename='img/user_group_red_32.png') }}"/>
+            <img src="{{ url_for('.static', filename='img/user_group_red_32.png') }}"/>
             <span style="margin-left:5px;font-size:16px;vertical-align:middle;">
                 <a href="{{ url_for('.add_project_member', prj_id=prj.prj_id)}}">Add New Member</a>
             </span>
