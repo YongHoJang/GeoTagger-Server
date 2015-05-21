@@ -1,4 +1,4 @@
-import settings
+import app.gts_settings
 from flask import Blueprint, render_template, abort, request, Response, redirect, flash
 from flask import url_for
 from flask import current_app as app

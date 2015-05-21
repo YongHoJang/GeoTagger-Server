@@ -10,9 +10,10 @@ from werkzeug.contrib.fixers import ProxyFix
 # Setup app!
 # ---
 # OLD WAY
-#SETTINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'settings.py')
+SETTINGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'gts_settings.py')
 #print "SETTINGS_PATH: ", SETTINGS_PATH
 #app = Eve(settings=SETTINGS_PATH)
+print 'SETTINGS_PATH', SETTINGS_PATH
 
 DB_SETTINGS = {
     'DOMAIN': domain,
@@ -25,7 +26,7 @@ DB_SETTINGS = {
 app = Eve(settings=DB_SETTINGS)
 # Configure your app with other settings.
 app.config.from_object('settings')
-
+#app = Eve(settings=SETTINGS_PATH)
 
 # Blueprint Configuration
 from proxy.views_factual import proxy_views

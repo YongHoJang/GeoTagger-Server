@@ -49,8 +49,12 @@ DEBUG = True
 FACTUAL_APIKEY = 'pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR'
 
 
-
-
+'''
+DOMAIN = domain
+MONGO_HOST= 'localhost',
+MONGO_PORT= 27017,
+MONGO_DBNAME= 'geotaggerdb'
+'''
 
 
 
