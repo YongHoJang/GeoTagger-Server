@@ -27,7 +27,6 @@ app = Eve(settings=DB_SETTINGS)
 app.config.from_object('settings')
 
 
-
 # Blueprint Configuration
 from proxy.views_factual import proxy_views
 from account.views import account_views, login

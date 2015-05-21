@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-
+from schemas import domain
 
 
 # Enable reads (GET), inserts (POST) and DELETE for resources/collections
@@ -47,7 +47,6 @@ DEBUG = True
 
 # Factual API KEY
 FACTUAL_APIKEY = 'pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR'
-
 
 
 
