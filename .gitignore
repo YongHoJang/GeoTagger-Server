@@ -4,5 +4,7 @@ lib/
 **/*.pyc
 .Python
 ENV/
+**/*.log
+
 
 
