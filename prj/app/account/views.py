@@ -122,11 +122,13 @@ def create_project():
     #with lock:
     form = CreateProjectForm(request.form)
     if request.method == 'POST' and form.validate():
-        new_proj = Project(prj_name=form.name.data, prj_desc=form.desc.data, 
-            owner=current_user.get_id())
+        new_proj = Project(prj_name=form.name.data, prj_desc=form.desc.data,
+            is_private=form.is_private.data, owner=current_user.get_id())
+        print 'project.is_private:', new_proj.is_private
         prj_id = new_proj.save()
         # Add a user as an owner of a project
         proj = Project.get_project_for_projectid(prj_id)
+        print 'project.is_private 2:', proj.is_private
         owner_name = current_user.firstname + ' ' + current_user.lastname
         proj.add_member(name=owner_name, email=current_user.get_id(), 
             role=Project.ROLE_OWNER)

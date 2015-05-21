@@ -3,4 +3,6 @@ include/
 lib/
 **/*.pyc
 .Python
+ENV/
+
 

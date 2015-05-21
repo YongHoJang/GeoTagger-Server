@@ -14,11 +14,16 @@ from werkzeug.contrib.fixers import ProxyFix
 #print "SETTINGS_PATH: ", SETTINGS_PATH
 #app = Eve(settings=SETTINGS_PATH)
 
-EVE_SETTINGS = {
+DB_SETTINGS = {
     'DOMAIN': domain,
+    'MONGO_HOST': 'localhost',
+    'MONGO_PORT': 27017,
+    'MONGO_DBNAME': 'geotaggerdb'
+
 }
-# NEW ONE
-app = Eve(settings=EVE_SETTINGS)
+# Setup Eve for API. First, you need to configure Eve with DB params.
+app = Eve(settings=DB_SETTINGS)
+# Configure your app with other settings.
 app.config.from_object('settings')
 
 

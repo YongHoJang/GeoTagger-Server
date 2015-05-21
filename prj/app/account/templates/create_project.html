@@ -42,7 +42,7 @@
                     </div>
                     
                     
-                    <div>{{ form.desc.label }}</div>
+                    <div >{{ form.desc.label }}</div>
                     <div>{{ form.desc(rows='5', style='width:500px')|safe }}
                         {% if form.desc.errors %}
                             <ul class=errors>
@@ -53,6 +53,17 @@
                         {% endif %}
                     </div>
                     
+                    <div>Is this project private?&nbsp;&nbsp;{{ form.is_private(checked=True) }} 
+                        {% if form.is_private.errors %}
+                            <ul class=errors>
+                                {% for error in form.is_private.errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>                        
+                        
+                    <div class="form-control">    
                     <p>
                         <span style="margin-right:40px;">
                             <input class="btn btn-primary" type="submit" value="Create">
@@ -61,6 +72,7 @@
                             <a href="{{ url_for('.list_projects')}}">Cancel</a>
                         </span>
                     </p>
+                    </div>    
                     
                     </fieldset>
                     <input name=_csrf_token type=hidden value="{{ csrf_token }}">

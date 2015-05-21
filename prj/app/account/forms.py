@@ -51,6 +51,7 @@ class ChangePasswordForm(Form):
 class CreateProjectForm(Form):
     name = TextField('Project Name', [validators.Length(min=1, max=30)])   
     desc = TextAreaField('Description', [validators.Length(min=0, max=500)])
+    is_private = BooleanField('Is this project private?')
 
 
 class AddProjectMemberForm(Form):

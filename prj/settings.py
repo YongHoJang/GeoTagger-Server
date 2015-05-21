@@ -11,13 +11,6 @@ RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 # individual items  (defaults to read-only item access).
 ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 
-# MONGO CONFIG
-MONGO_HOST = 'localhost'
-MONGO_PORT = 27017
-#MONGO_USERNAME = 'admin'
-#MONGO_USERNAME = '@dmin!'
-MONGO_DBNAME = 'gtsdb'
-
 
 # API URL CONFIG
 URL_PREFIX = 'api'

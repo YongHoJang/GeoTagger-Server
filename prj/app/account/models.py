@@ -81,6 +81,8 @@ class User(UserMixin):
         # To check if username is already existing.
         user = mongo.db.users.find_one({'username': username})
         if user:
+            print 'current db name"', mongo.db.name
+            print 'the new user already exists!'
             return None # the username is already existing. Throw an exception.
         else:
             # Generate a salted password by using PBKDF2-SHA256
@@ -154,13 +156,14 @@ class Project:
     ROLE_MEMBER = 'member'    
     
     
-    def __init__(self, prj_name, prj_desc, owner, prj_id=None, 
+    def __init__(self, prj_name, prj_desc, owner, prj_id=None, is_private=True,
             member_list=[]):
         self.name = prj_name
         self.desc = prj_desc
         self.owner = owner # owner's username
         self.member_list = member_list # object id list of members
         self.prj_id = prj_id
+        self.is_private = is_private # flag to indicate private vs public dataset
         if prj_id is None:
             self.prj_id = self.create_prj_id()
         
@@ -237,7 +240,7 @@ class Project:
         for row in projects:
             print 'project row', row
             prj = Project(prj_name=row['name'], prj_desc=row['desc'],
-                owner=username, prj_id=row['prj_id'], 
+                owner=username, prj_id=row['prj_id'], is_private=row['is_private'],
                 member_list=row['member_list'])
             #prj.member_list = json.loads(row['member_list'])  
             prj_list.append(prj)
@@ -251,7 +254,7 @@ class Project:
         if row is not None:
             prj = Project(prj_name=row['name'], prj_desc=row['desc'],
                 owner=row['owner'], prj_id=row['prj_id'], 
-                member_list=row['member_list'])
+                is_private=row['is_private'], member_list=row['member_list'])
             #prj.member_list = json.loads(row['member_list'])    
             return prj  
         else:
