@@ -28,13 +28,25 @@
             </span>
             
         </div>
-        <div class="span4">
+        <div class="span2">
+            <span style="vertical-align:middle;color=red;">
+                <a href="">Delete</a>
+            </span>            
+        </div>
+        <div class="span2">
             <span style="vertical-align:middle">
-                <a href="{{ url_for('.list_projects')}}">Go Back</a>
+                <a href="{{ url_for('.list_projects')}}">Back To Project List</a>
             </span>
             
         </div>
 
+    </div>
+    <div class="row">
+        <div class="span8" style="margin-top:20px;">
+            <font color="#5858FA">Project Summary: {{prj.desc}}</font>
+        </div>
+        <div class="span4">
+        </div>
     </div>
 
     <div class="row" style="margin-top:40px;margin-bottom:20px;">

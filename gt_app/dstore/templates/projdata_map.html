@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+
+{% include '_dstore_head.html' %}
+
+<body style="margin: 0 auto;width:1000px;">
+
+<div id="dstore-top">
+    {% include '_dstore_header.html' %}
+    
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}    
+    
+    <div class="row" style="margin-top:50px;">
+        <div class="span8">
+            <span style="font-size:18px;margin-right:20px;">
+                <b>{{prj.name}}</b>
+            </span>
+            <span style="font-size:18px;">
+                (Project ID: {{prj.prj_id}})
+            </span>
+            
+        </div>
+        <div class="span2">         
+        </div>
+        <div class="span2">
+            <span style="vertical-align:middle">
+                <a href="{{ url_for('account.list_projects')}}">Back To Project List</a>
+            </span>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="span8" style="margin-top:20px;">
+            <font color="#5858FA">Project Summary: {{prj.desc}}</font>
+        </div>
+        <div class="span4">
+        </div>
+    </div>
+</div>    
+    
+<div class="container-fluid ">
+
+    <div id="main-outer">
+        <div id="main-content">
+            <nav id="main-nav">
+                <ul id="navigation">
+                    <li>
+                        <a href="#panel" id="panel-button">&laquo;&nbsp;open</a>
+                    </li>    
+                </ul>
+            </nav>
+
+            <div id="prj-datamap">
+            </div>
+
+        </div>
+
+        <div id="panel">
+        </div>
+    </div>    
+          
+</div> <!-- END fo div container-fluid -->  
+
+<script>
+$(function() {
+
+    // Resize map height
+    // -------
+    var top_height = $('#dstore-top').height() + 70;
+
+    $('#prj-datamap').height($(window).height() - top_height);
+    $("#panel").height($(window).height() - top_height);
+
+    $(window).resize(function() {
+        var bodyheight = $(window).height() - top_height;
+        $("#prj-datamap").height(bodyheight);
+        $("#panel").height(bodyheight);
+    }); 
+    
+    var map;
+    function initialize() {
+      var mapOptions = {
+        zoom: 8,
+        center: new google.maps.LatLng(-34.397, 150.644)
+      };
+      map = new google.maps.Map(document.getElementById('prj-datamap'),
+          mapOptions);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);    
+
+    // MAP INITIALIZATION
+    // --------
+    /*
+    var map;
+    var fLayers;
+    var fLayer;
+    require(["esri/map",
+        "esri/arcgis/utils",
+        "esri/layers/FeatureLayer",
+        "esri/graphic",
+        "esri/tasks/query",
+        "esri/geometry/Point", 
+        "dojo/domReady!"], 
+        function(Map, arcgisUtils, FeatureLayer, Graphic, Query, Point) {
+            // WebMap option to disable popups window
+            var createMapOptions = { ignorePopups: true };
+            // Create a map with a webmap from arcgis.com
+            arcgisUtils.createMap("4263c3792e774f6e896ba959a8832cf0", "map", createMapOptions).then(initializeMap);
+            
+            // Initialize Map and register related events.
+            function initializeMap(response) {
+                // Get a created map.
+                map = response.map;
+                // Create a feature layer to query
+                var serviceURL = "https://services1.arcgis.com/DnZ5orhsUGGdUZ3h/arcgis/rest/services/ProtoypeService_04222015/FeatureServer/0"
+                fLayer = new FeatureLayer(serviceURL, { outFields: ["LangName", "ISO_639"] } );    
+                // Register query event.
+                map.on('click', function(evt) {
+                    // Create a query
+                    var geometry = evt.mapPoint;
+                    var query = new Query();
+                    query.geometry = geometry;
+                    // Query a selected feature
+                    fLayer.queryFeatures(query, displayFeatureInfo);
+                });                        
+            }
+        
+            // Register a click event
+            function displayFeatureInfo(response) {
+                var feature = response.features[0];
+                // Get iso 639 code to be used in subsequent queries.
+                var iso639 = feature.attributes['ISO_639'];
+                // For debugging
+                alert("selected feature iso 639 code: " + iso639);
+            }
+        }
+    );  // End require
+    */
+
+}); // End outer function
+</script>
+  
+</body>
+
+</html>

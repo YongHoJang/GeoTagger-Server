@@ -43,7 +43,7 @@ DEFAULT_MAIL_SENDER = MAIL_USERNAME
 SECRET_KEY = 'B1Xp83k/4qY1S~GIH!jnM]KES/,?CT'
 
 # App debug mode
-DEBUG = True
+DEBUG = False
 
 # Factual API KEY
 FACTUAL_APIKEY = 'pC9gGyNpqpTupGkc89DGOpKFAzAtPyo9EVawfHoR'

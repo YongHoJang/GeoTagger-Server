@@ -32,11 +32,11 @@
             <table class='table row'>
                 <thead>
                     <tr>
-                        <th class="col-md-2">Project Name</th>
-                        <th class="col-md-1">Project ID</th>
-                        <th class="col-md-1">Type</th>
-                        <th class="col-md-4">Description</th>
-                        <th class="col-md-4"># of memebers</th>
+                        <th class="span4">Project Name</th>
+                        <th class="span2">Project ID</th>
+                        <th class="span2">Type</th>
+                        <th class="span2"># of memebers</th>
+                        <th class="span2"></th>
                     </tr>
                 </thead>
                 <tbody>             
@@ -51,8 +51,11 @@
                             <font style="color:green">public project</font>
                             {% endif %}
                         </td>
-                        <td>{{ prj.desc }}</td>
                         <td></td>
+                        <td>
+                            <a href="{{ url_for('dstore.projdata_map', prj_id = prj.prj_id) }}/">View Data</a>&nbsp;&nbsp;
+                            <a href="{{ url_for('.view_project', prj_id = prj.prj_id) }}/">Manage</a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
